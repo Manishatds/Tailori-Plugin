@@ -384,7 +384,7 @@ _______________________________________________________________________________
 
 ## Exmaple of template for boostrap nav panel 
 
-
+```html
 <script id="theTmpl1" type="text/x-jsrender">
 	<div class="col-md-12">
             <div class="panel with-nav-tabs panel-default">
@@ -413,7 +413,7 @@ _______________________________________________________________________________
 		</div>
 	</div>	
 </script>
-
+```
 _______________________________________________________________________________
 
 If you want to use show options and feature dynamically you can create three template
@@ -426,6 +426,8 @@ if *IsOptionVisible=false*  or Product contain only one option then it will dire
 
 ### Example for Product Template
 
+
+```html
 <script id="theTmpl33" type="text/x-jsrender">
 		<li id="Fab">
 			<a><span>Fabrics</span></a>
@@ -441,11 +443,12 @@ if *IsOptionVisible=false*  or Product contain only one option then it will dire
 			  <a><span>Monogram</span></a>
 		 </li>
  </script>
-_____________________________________________________________________________
+```
+___________________________________________________________________________
 
 ### Example for Option Template
 
-
+```html
 <script id="optionsTemplate" type="text/x-jsrender">
 	 {{for Options}}
 
@@ -461,6 +464,8 @@ _______________________________________________________________________________
 
 ### Example for Feature Template
 
+
+
 <script id="FeaturesTemplate" type="text/x-jsrender">
 		    {{for Features}}
 		      <li>
@@ -469,15 +474,16 @@ _______________________________________________________________________________
 			</a>
 		      </li>
 		    {{/for}}
- </script>
-	
+</script> 
+```
+
 _______________________________________________________________________________
 
 ## Monogram
 
 ### Example for Monogram Template
 
-
+```html
 <script id="MonogramTemplate2" type="text/x-jsrender">
 	<div class="form-group">
 	 <label for="sel1">Monogram Placement:</label>
@@ -511,7 +517,7 @@ _______________________________________________________________________________
 	</div>
 </script>
 
-
+```
 
 
 
