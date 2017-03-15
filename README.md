@@ -50,16 +50,16 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | -----------------------------------------------|------------| -------:|
 | ServiceUrl                                     | Url of textronics tailori api provided you| * |
 | Product                                        | Product Name | * | 
-| ProductTemplate                                | jsrender templare for rendering options/elements | * |
+| ProductTemplate                                | jsrender template for rendering options/elements | * |
 | ImageSource                                    | Image container where rendered images are placed (i.e. id, class or etc) if you want to manage rendered image by your own keep this empty |         |
-| OptionsPlace                                   | Conatainer for placing the ProductOptions | * <sup><sup>1</sup></sup> |         
+| OptionsPlace                                   | Container for placing the ProductOptions | * <sup><sup>1</sup></sup> |         
 | OptionTemplate                                 | if you want to show Options dynamic give template id of option here (it will render html contains dynamic after click on **product** i.e. click coller or cuff or etc)             | * <sup><sup>1</sup></sup> |
-| FeaturesPlace                                   | Conatainer for placing the ProductOptions Feature | * <sup><sup>2</sup></sup> |         
-| FeatureTemplate                                 | if you want to show Options dynamic give template id of option here (it will render html contains dynamic after click on **product** i.e. click half sleeve or full sleeve or etc)             | * <sup><sup>2</sup></sup> |
+| FeaturesPlace                                   | Container for placing the ProductOptions Feature | * <sup><sup>2</sup></sup> |         
+| FeatureTemplate                                 | if you want to show options dynamic give template id of option here (it will render html contains dynamic after click on **product** i.e. click half sleeve or full sleeve or etc)             | * <sup><sup>2</sup></sup> |
 | IsOptionVisible                                 | If *true* ProductOptions are visible on page *else* ProductOptions Features will shown   |         |
-| MonogramTemplate                               | Conatainer for placing the monogram options   |         |
-| AutoSpecific                                   | if *true* detailed view of specific part is automaticaly renderd *else* not   |         |
-| AutoAlignment                                  | if *true* view of appreals change according to seleted feature |         |
+| MonogramTemplate                               | Container for placing the monogram options   |         |
+| AutoSpecific                                   | if *true* detailed view of specific part is automatically renderd *else* not   |         |
+| AutoAlignment                                  | if *true* view of Apparel change according to seleted feature |         |
 
 ## Data Attributes
 | Data Attribute       | Description                                                    |
