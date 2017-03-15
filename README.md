@@ -288,7 +288,7 @@ Products we are using{{for product}}-------{{for}}
 Options we are using{{for options}}-----{{for}}  
 Contast we are using{{for contrast}}-----{{for}}  
 
-	<script id="theTmpl" type="text/x-jsrender">
+```html<script id="theTmpl" type="text/x-jsrender">
 
 		<div class="panel-group" id="accordion2">
 			{{for Product}}
@@ -331,7 +331,7 @@ Contast we are using{{for contrast}}-----{{for}}
 		</div>
 
 	</script>
-
+```
 
 _______________________________________________________________________________
 
