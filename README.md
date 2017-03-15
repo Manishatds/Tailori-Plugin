@@ -288,57 +288,52 @@ Products we are using{{for product}}-------{{for}}
 Options we are using{{for options}}-----{{for}}  
 Contast we are using{{for contrast}}-----{{for}}  
 
-
-    <script id="theTmpl" type="text/x-jsrender">
+	<script id="theTmpl" type="text/x-jsrender">
 
 	<div class="panel-group" id="accordion2">
 		{{for Product}}
-		 <div class="panel panel-default">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" 
-						href="#collapse{{:Id}}">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{:Id}}">
 						 <img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
-															</a>
-				</h4>
-		</div>
-		<div id="collapse{{:Id}}" class="panel-collapse collapse">
-			<div class="panel-body">
-				<table class="table">
-					{{for Options}}
-						
-						{{for Features}}		
-							<tr id="{{:Id}}">
-								<td>
-									<span class="glyphicon glyphicon-chevron-right"></span>
-                                                                         <a href="#">{{:Name}}</a>						
-								</td>
-							</tr>
-					{{/for}}
-							
-							
-							
-					{{/for}}
-					{{for Contrasts}}		
-							<tr id="{{:Id}}">
-								<td>
-									<span class="glyphicon glyphicon-chevron-right"></span>
-                                                                                <a href="#">{{:Name}}</a>
-								</td>
-							</tr>
-						{{/for}}
-				</table >
+						</a>
+					</h4>
+				</div>
+				<div id="collapse{{:Id}}" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table class="table">
+							{{for Options}}
+
+								{{for Features}}		
+									<tr id="{{:Id}}">
+										<td>
+											<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
+										</td>
+									</tr>
+								{{/for}}
+
+
+
+							{{/for}}
+							{{for Contrasts}}		
+									<tr id="{{:Id}}">
+										<td>
+											<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
+										</td>
+									</tr>
+								{{/for}}
+						</table >
+					</div>
+				</div>
 			</div>
-		 </div>
-		</div>
-                        {{/for}}
+		{{/for}}
 	</div>
 
-    </script>													
+	</script>
 
 
-
-
+_______________________________________________________________________________
 
 ## Exmaple of template for boostrap accordion
 
@@ -384,10 +379,11 @@ Contast we are using{{for contrast}}-----{{for}}
 
 </script>
 ```
+_______________________________________________________________________________
 
 ## Exmaple of template for boostrap nav panel 
 
-```html
+
 <script id="theTmpl1" type="text/x-jsrender">
 	<div class="col-md-12">
             <div class="panel with-nav-tabs panel-default">
@@ -417,6 +413,7 @@ Contast we are using{{for contrast}}-----{{for}}
 	</div>	
 </script>
 ```
+_______________________________________________________________________________
 
 If you want to use show options and feature dynamically you can create three template
  
@@ -427,90 +424,90 @@ If you want to use show options and feature dynamically you can create three tem
 if *IsOptionVisible=false*  or Product contain only one option then it will direct show the all feature from perticular Product
 
 ### Example for Product Template
-```html
-<script id="theTmpl33" type="text/x-jsrender">
-	<li id="Fab">
-		<a><span>Fabrics</span></a>
-	</li>
-	{{for Product}}
-		<li>
-			<a class="nav-toggle" href="#" style="background-image:url({{:ImageSource}}); background-repeat:no-repeat; ">
-				<span>{{:Name}}</span>
-			</a>
+
+	<script id="theTmpl33" type="text/x-jsrender">
+		<li id="Fab">
+			<a><span>Fabrics</span></a>
 		</li>
-	 {{/for}}
-	 <li id="Monogram">
-		  <a><span>Monogram</span></a>
-	 </li>
- </script>
-```
+		{{for Product}}
+			<li>
+				<a class="nav-toggle" href="#" style="background-image:url({{:ImageSource}}); background-repeat:no-repeat; ">
+					<span>{{:Name}}</span>
+				</a>
+			</li>
+		 {{/for}}
+		 <li id="Monogram">
+			  <a><span>Monogram</span></a>
+		 </li>
+	 </script>
+_____________________________________________________________________________
 
 ### Example for Option Template
-```html
-<script id="optionsTemplate" type="text/x-jsrender">
- {{for Options}}
 
-      <li id='{{:Id}}'>
-        <a class='nav-toggle' href='#' style='background-image:url({{:ImageSource}}); background-repeat:no-repeat;'>
-          <span>{{:Name}}</span>
-        </a>
-      </li>
 
-  {{/for}}
+	<script id="optionsTemplate" type="text/x-jsrender">
+	 {{for Options}}
 
- </script>
-```
+	      <li id='{{:Id}}'>
+		<a class='nav-toggle' href='#' style='background-image:url({{:ImageSource}}); background-repeat:no-repeat;'>
+		  <span>{{:Name}}</span>
+		</a>
+	      </li>
+
+	  {{/for}}
+	 </script>
+_______________________________________________________________________________
 
 ### Example for Feature Template
 
-```html
-<script id="FeaturesTemplate" type="text/x-jsrender">
-    {{for Features}}
-      <li>
-        <a href="#" style="background-image:url({{:ImagesUrl}}); background-repeat:no-repeat; background-size:100%;">
-          <span>{{:Name}}</span>
-        </a>
-      </li>
-    {{/for}}
- </script>
-```
+		<script id="FeaturesTemplate" type="text/x-jsrender">
+		    {{for Features}}
+		      <li>
+			<a href="#" style="background-image:url({{:ImagesUrl}}); background-repeat:no-repeat; background-size:100%;">
+			  <span>{{:Name}}</span>
+			</a>
+		      </li>
+		    {{/for}}
+		 </script>
+	
+_______________________________________________________________________________
 
 ## Monogram
 
 ### Example for Monogram Template
-```html
-<script id="MonogramTemplate2" type="text/x-jsrender">
-<div class="form-group">
- <label for="sel1">Monogram Placement:</label>
- <select class="form-control" id="sel1">
-  {{for MonogramPlacement}}
-  <option>{{:Name}}</option>
-    {{/for}}
-  </select>
- </div>
- <div class="form-group">
-  <label for="sel2">Monogram Font:</label>
-  <select class="form-control" id="sel2">
-   {{for MonogramFont}}
-   <option>{{:Name}}</option>
-     {{/for}}
-   </select>
-  </div>
-  <div class="form-group">
-  <label for="usr">Monogram Text:</label>
-  <input class="form-control" id="monogram-text" data-tds-moption="text" placeholder="Enter Text" type="text">
-</div>
-<div>
-<label>Monogram Color:</label>
-  <ul class="color">
-    {{for MonogramColor}}
-    <li style="background-color:{{:Name}};">
-      <a href="#" style="background-color:{{:Name}}; background-repeat:no-repeat; background-size:100%;"> </a>
-    </li>
-      {{/for}}
-  </ul>
-</div>
-</script>
+
+	<script id="MonogramTemplate2" type="text/x-jsrender">
+	<div class="form-group">
+	 <label for="sel1">Monogram Placement:</label>
+	 <select class="form-control" id="sel1">
+	  {{for MonogramPlacement}}
+	  <option>{{:Name}}</option>
+	    {{/for}}
+	  </select>
+	 </div>
+	 <div class="form-group">
+	  <label for="sel2">Monogram Font:</label>
+	  <select class="form-control" id="sel2">
+	   {{for MonogramFont}}
+	   <option>{{:Name}}</option>
+	     {{/for}}
+	   </select>
+	  </div>
+	  <div class="form-group">
+	  <label for="usr">Monogram Text:</label>
+	  <input class="form-control" id="monogram-text" data-tds-moption="text" placeholder="Enter Text" type="text">
+	</div>
+	<div>
+	<label>Monogram Color:</label>
+	  <ul class="color">
+	    {{for MonogramColor}}
+	    <li style="background-color:{{:Name}};">
+	      <a href="#" style="background-color:{{:Name}}; background-repeat:no-repeat; background-size:100%;"> </a>
+	    </li>
+	      {{/for}}
+	  </ul>
+	</div>
+	</script>
 ```
 
 
