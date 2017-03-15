@@ -231,8 +231,9 @@ _______________________________________________________________________________
 In html we call id xyz so all feature template will call in #xyz
 for e.g in html body we have to add
 
-<div id ="xyz">  product features will appear here </div>
-</html>
+	<html>
+	<div id ="xyz">  product features will appear here </div>
+	</html>
 
 'featurePlace':'#xyz'
 _______________________________________________________________________________
@@ -252,9 +253,9 @@ _______________________________________________________________________________
 In html we call id ABC so all features template will call in #ABC
 for e.g in html body we have to add
 
-<body>
-<div id ="ABC">product options will appear here </div>
-</body>
+	<html>
+	<div id ="ABC">product options will appear here </div>
+	</html>
 _______________________________________________________________________________
 
 ### Isoptions
