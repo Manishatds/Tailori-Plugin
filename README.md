@@ -151,12 +151,14 @@ In Example we are using
 
 ###2. Product Template  
 
-We have to create template id where we call ids, this template will call as page opens.
+We have to create template id where we call ids, this template will call as page opens.  
 
-for e.g ('Product Template':#Template name  ,'Product Template':#template01......)
- In Example we are using
+for e.g ('Product Template':#Template name  ,'Product Template':#template01......)  
+
+In Example we are using
 'Product Template':#div-1
-______________________________________________________________________________
+
+----------------------------------------
 
 ###3. Img-Source  
 Html container for 3d Image
