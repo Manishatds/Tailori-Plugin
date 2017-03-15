@@ -46,7 +46,7 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
   ##  Binding Element Attributes  
   In addition to normal text, you may also want to have your templates contain HTML elements whose attributes are bound to the
   controller. 
-	--html
+	
 	
 	
 	  <html>
@@ -60,7 +60,7 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 	   <div id="myTemplate">In this Id your all var data will call     
 	   </div>   
 	  </body>
-	--  
+	  
 
 # Documentation
 
