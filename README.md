@@ -267,50 +267,78 @@ if we want to show options(straight cuff, beveled cuff...) in seperated we can p
 
 _______________________________________________________________________________
 
-# How to use JsRender 
-
+# How to use JsRender and Creating Template
 JsRender is a light-weight but powerful templating engine.
 
-You shouldn't care about jsrender object creation and other stuff, plugin will do it.
-You should only care about creating template
+Here's a first example of the power and simplicity of JsRender templates:
 
-## *Define a template*
 
-From a template declared as markup in a script block:
+	Some data:
+	
+	    "ID":
+	    "name":
+	    "Imagesource":
+	
 
-```js
 
-<script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script>
-```
+A template (with a conditional section using an {{for}}-------{{for}}, tag):
 
-But now we are using for textronics tailori, so we will mostly use [{{for ...}} tag](https://www.jsviews.com/#jsr-quickstart@fortag)
+In Example we are using  
+Products we are using{{for product}}-------{{for}}  
+Options we are using{{for options}}-----{{for}}  
+Contast we are using{{for contrast}}-----{{for}}  
 
-Following object hierarchy provide you for creating template
 
-```
-├──── Product
-│   │
-│   ├──── Options 
-│   │   │
-│   │   └── Features
-│   │
-│   └──── Contrasts
-│
-├──── MonogramPlacement
-│
-├──── MonogramFont
-│
-└──── MonogramColor
-```
-Following is a object structure of **Product**, **Options**, **Features**, **Contrasts**, **MonogramPlacement**, **MonogramFont** and  **MonogramColor** which will be used for more detailing your template
+    <script id="theTmpl" type="text/x-jsrender">
 
-```
-    Product/ Options/ Features/ Contrasts/ MonogramPlacement/ MonogramFont/ MonogramColor
-    │
-    ├── Id 
-    ├── Name
-    └── ImageSource
-```
+	<div class="panel-group" id="accordion2">
+		{{for Product}}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" 
+						href="#collapse{{:Id}}">
+						 <img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
+															</a>
+				</h4>
+			</div>
+			<div id="collapse{{:Id}}" class="panel-collapse collapse">
+				<div class="panel-body">
+					<table class="table">
+						{{for Options}}
+						
+							{{for Features}}		
+								<tr id="{{:Id}}">
+									<td>
+										<span class="glyphicon glyphicon-chevron-right"></span>
+                                                                                 <a href="#">{{:Name}}</a>						
+									</td>
+								</tr>
+							{{/for}}
+							
+							
+							
+						{{/for}}
+						{{for Contrasts}}		
+								<tr id="{{:Id}}">
+									<td>
+										<span class="glyphicon glyphicon-chevron-right"></span>
+                                                                                <a href="#">{{:Name}}</a>
+										</td>
+									</tr>
+								{{/for}}
+						</table >
+					</div>
+				</div>
+			</div>
+		{{/for}}
+	</div>
+
+    </script>													
+
+
+
+
 
 ## Exmaple of template for boostrap accordion
 
