@@ -1,7 +1,7 @@
 <img src="icon.png" align="right" />
 # Tailori
 
-Textronics Tailori is a plugin that simplifies access to textronics services functionality!
+This guide will teach you how to build a Tailor-i Plugin in your current website and access to textronics services funtionality!
 
 It provides following features:
 * [Element Rendering](#)
