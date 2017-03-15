@@ -20,23 +20,12 @@ ________________________________________________________________________________
 # Dependencies
 
 i)  jquery.js   [download](https://code.jquery.com)
+
 i)  jsrender.js   [download](https://www.jsviews.com/download/jsrender.min.js) 
+
 ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive/master.zip) 
 
 
-# Installation
-
-Add **jquery.tds.js** to your project. [Download](https://github.com/Sagar-TDS/Tailori-Plugin/archive/master.zip).
-
-```html
-// Add jquery.js 
-<script type="text/javascript" src="jquery.min.js"></script>
-
-// Add jsrender.js 
-<script type="text/javascript" src="jsrender.min.js"></script>
-
-<script type="text/javascript" src='jquery.tds.js'></script>
-```
 
 # Documentation
 
