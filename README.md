@@ -29,7 +29,7 @@ To know more about features of TheGuide, continue reading our documentation and 
 * [Save and load favourite look](#)  
   Allow user to Custom product look
 
-  watch [Tailori online Demo](https://sagar-tds.github.io/Tailori-Plugin)
+  [View Tailori online Demo](https://sagar-tds.github.io/Tailori-Plugin)
 
 __________________________________________________________________________________________________________________________________
 
