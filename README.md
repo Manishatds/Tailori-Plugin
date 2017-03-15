@@ -1,7 +1,7 @@
 <img src="icon.png" align="right" />
 # Tailori
 
-This guide will teach you how to build a Tailor-i Plugin in your current website and access to textronics services funtionality!
+This guide will teach you how to build a textronics Tailor-i Plugin in your current website and access services!
 
 It provides following features:
 * [Element Rendering](#)
