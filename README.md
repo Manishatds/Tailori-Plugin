@@ -97,18 +97,46 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | OnContrastChange     | This callback fire when user click on Contrast  |
 | OnRenderChange       | This callback fire when rendered images are ready to display i.e. after changing he element when result is get from textronics api also this callback have one parameter which array type (*if you want to render image by yourself then use this parameter and then there no need to give <b>ImageSource</b> option in plugin initialization* ) |
 
-Public methods in plugin
+## Example
 -------------------------
 
 Public methods are usable on tailori objects
 
 ```js    
-    obj = $("#div-1").tailori({
+    <script>
+var obj =null;
+function GetSummary(){
+	console.log( obj.Summary());
+}
+function GetProduct(){
+	obj.Product($("#product-info").val());
+}
+	$(document).ready(function () {
+		//alert("hi")		
+		
+		 obj = $("#div-1").tailori(
+		{
 			'Product':'MEN-SHIRT',   //Product i.e men shirt,women shirt, men suit, etc
-			'ProductTemplate':'#theTmpl', //Template id for Product
+			'ProductTemplate':'#theTmpl', //Tempalte id for Product
 			'ImageSource':'#img-div', //Container Id for place inages
-			'ServiceUrl':'http://172.16.1.63'
-     });
+			'ServiceUrl':'http://textronic.online/WEB_API',
+			'AutoSpecific':false, //Auto specific view after selecting any feature
+			'AutoAlignment':false, //Auto alignment set according to selected element
+			'Monogram':false, //If monogram 
+			'MonogramTemplate':'#theTmplm', //Tempalte id for Monogram UI
+			'MonogramPlace':'#monoplace', // html containter for Monogram
+			'FeatureCallback': function(){
+				alert($(this).attr("data-tds-key"));
+				
+				console.log(abc);				
+			},
+			'RenderCallback':function(a){
+				console.log(a);
+				//console.log(b);
+			}
+			//OptionCallback
+		});
+
       
 ```
 ------------------------------------------------
