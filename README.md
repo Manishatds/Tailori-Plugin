@@ -19,11 +19,10 @@ ________________________________________________________________________________
 
 # Dependencies
 
-jsrender.js and jquery.tds.js
+i)  jquery.js   [download](https://code.jquery.com)
+i)  jsrender.js   [download](https://www.jsviews.com/download/jsrender.min.js) 
+ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive/master.zip) 
 
-The plugin has hard dependency on [jsrender.js](https://www.jsviews.com). You can download it from [here](https://www.jsviews.com/download/jsrender.min.js) (To download, right-click and select “Save as…” from the menu).
-
-Plugin also required Letest jQuery. You can download it from [here](https://code.jquery.com)
 
 # Installation
 
