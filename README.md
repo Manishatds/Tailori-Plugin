@@ -12,28 +12,22 @@ To know more about features of TheGuide, continue reading our documentation and 
 * [Element Rendering](#)  
   It allows to render Product, options & features   
 	
-* [Contrast Options](#)
-
+* [Contrast Options](#)  
   Allow user to apply contrast fabric on product
   
-* [Monogram](#)
-
+* [Monogram](#)  
   This feature allows you to give Company Branding on Prouduct i.e, Company Name...etc.
   
-* [Auto Specific view](#)
-
+* [Auto Specific view](#)  
   Zoom on Specific Part of Product i.e., Shirt Collar, Sleeves...etc
   
-* [Auto Alignment Change](#)
-
+* [Auto Alignment Change](#)  
   To View Back and Front Details
   
-* [Summary](#)
-
+* [Summary](#)  
   Your customised product and its details	
 
-* [Save and load favourite look](#)
-
+* [Save and load favourite look](#)  
   Allow user to Custom product look
 
 [Click here](https://sagar-tds.github.io/Tailori-Plugin) for Tailori live demo.
