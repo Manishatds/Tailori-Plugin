@@ -139,140 +139,125 @@ function GetProduct(){
       
 ```
 ------------------------------------------------
-### `Product()`
-If you want to change the **product** i.e from men-shirt to men-suit use 
 
-```js
-  obj.Product("men-suit");
-```
-------------------------------------------------
-### `Texture()`
-Get and Set the Texture (i.e.  fabric or color )  to apparel use 
+1. Product
+ Men-Shirt, Men-Suit, Men-Pant
+( 'Product':'MEN-SUIT' OR 'Product':'MEN-PANT'...)
+As we change Product the 3D Product will appear on Page
 
-if you want apply fabric from textronics fabric library send id of fabric
-```js
-  obj.Texture("fab12589");
-```
+In Example we are using
+'Product':'MEN-SHIRT' 
+______________________________________________________________________________
 
-if you want to apply color as texture 
-```js
-  obj.Texture("red"); 
-  obj.Texture("#ff0000");  //hex value of color
-  obj.Texture("rgb(255,0,0)");  //rgb value of color
-  obj.Texture("hsl(0, 100%, 50%)");  //hsl value of color
-```
+2. Product Template
 
-if you want texture of apparel call method without passing parameter
+We have to create template id where we call ids, this template will call as page opens.
 
-```js
- texture = obj.Texture();
-```
-------------------------------------------------
+for e.g ('Product Template':#Template name  ,'Product Template':#template01......)
+ In Example we are using
+'Product Template':#div-1
+______________________________________________________________________________
 
-### `ContrastTexture()`
-Get and Set the Texture (i.e.  fabric or color )  to contrast part of apparel 
+3. Img-Source
+Html container for 3d Image
+('Image Source'':'#img-div', 'Image Source'':'#garments', 'Image Source'':'#draping-region')
+ In Example we are using
+'Product Template': #img-div
+_______________________________________________________________________________
 
-if you want apply fabric from textronics fabric library send id of fabric
-```js
-  obj.ContrastTexture("fab12589");
-```
+4. ServiceUrl
 
-if you want to apply color as texture 
-```js
-  obj.ContrastTexture("red"); 
-  obj.ContrastTexture("#ff0000");  //hex value of color
-  obj.ContrastTexture("rgb(255,0,0)");  //rgb value of color
-  obj.ContrastTexture("hsl(0, 100%, 50%)");  //hsl value of color
-```
+Serviceurl is the url where we Place all our data that we need to call, for e.g product, draping parts, buttons, fabrics
+ In Example we are using
+'ServiceUrl':''http://textronic.online/WEB_API'',
+_______________________________________________________________________________
 
-if you want texture of contrast of apparel call method without passing parameter
+5. SpecificRender
 
-```js
- contrasttexture = obj.ContrastTexture();
-```
+SpecificRender option is used zoom specific Part of Img
 
-##### *Note: ContrastTexture apply texture on last selected contrast only*
-------------------------------------------------
+When we Pass Boolean 'true' then we can zoom particular part on img for e.g Collar, Sleeve
+if we put 'false' it wont show zoom.
 
-### `SpecificRender()`
-To show detailed view of specific part then send parameter ***true*** and to show normal view send ***false***
+ In Example we are using
+'SpecificRender':true,
+_______________________________________________________________________________
 
-```js
-obj.SpecificRender(true);
-```
----------------------------------------------------------------------------
+6. Auto Alignment (Currently not working)
+Auto Alignment is the option for Front View and Back View it shows backdetails and front details. so we have to pass boolean True or False
 
-### `Summary()`
-To get the summery of apparel
-Method returen the object contain selected part and fabric information with cost 
-```js
-obj.Summary();
-```
------------------------------------------------------------
+ In Example we are using
+'AutoAlignment':false,
+_______________________________________________________________________________
 
-### `ResetContrast()`
-To reset all contrast of apparel
-```js
-obj.ResetContrast();
-```
+ Monogram
+     a) Monogram      b) Monogram Template     c) Monogram Place
+   
+7 .'Monogram':true, or .'Monogram':false, 
+To add Monogram pass string value true other wise pass string false
 
-### `ResetProduct()`
-To load default apparel 
-```js
-obj.ResetProduct();
-```
+8. MonogramTemplate
+Same as product template we create template for Monogram.
+in template we can add: font, text, and placing area to show monogram Img. we can add Monogram on Pocket, Collar
 
-### `Look()`
-To get and set your favourite look (*i.e. if you want save your custmized apparel for feature use*)
-this will return you object which contain ***data*** and ***Image*** 
-If you want load your look next time send ***data***  to method 
+ In Example we are using
+'MonogramTemplate':#theTmplm
 
+9. MonogramPlace
+In html we call id monosublist so all Monogram template will render in #monosublist
+for e.g in html body we have to add
+<html>
+<div id ="monosublist"> for monogram template</div>
+</html>
 
-Get Look
-```js
-look = obj.Look();
-// look.Data - to load save look next time
-// look.Image - To show image of custmize look
-```
+ In Example we are using
+'MonogramPlace':#monosublist'
+_______________________________________________________________________________
 
-Load Look
-```js
- obj.Look(look.Data);
-```
+10. Feature Template
 
-### `Options()`
-Get an items of perticular product by sending it of product which you will get from OnProductChange
-It will return array of object
+Same as Mongram we have to create template how product features will display in broswer. If product is Cuff then options will be straight cuff, beveled cuff...and features will be single bottom cuff, double bottom cuff etc., so we will render this template in html head section
 
-```js
-optionsObj = obj.Options("158294");
-```
+'featureTemplate':'#Featuretemplatename'
+_______________________________________________________________________________
 
+11. Feature Place
 
-### `Options()`
-Get an items of perticular product by sending it of product which you will get from OnProductChange
-It will return array of object
+In html we call id xyz so all feature template will call in #xyz
+for e.g in html body we have to add
 
-```js
-optionsObj = obj.Options("158294");
-```
+<div id ="xyz">  product features will appear here </div>
+</html>
 
+'featurePlace':'#xyz'
+_______________________________________________________________________________
 
-### `Features()`
-Get an items of perticular product by sending it of option which you will get from OnOptionChange
-It will return array of object
+10. Option Template
 
-```js
-featuresObj = obj.Features("75321598");
-```
+'optiontemplate':'#optionstemplatename'
 
-### `Contrasts()`
-Get an items of perticular product by sending it of product which you will get from OnProductChange
-It will return array of object
+We have to create template how product options will display in broswer. If product is Cuff then options will be straight cuff, beveled cuff...and features will be single bottom cuff, double bottom cuff....
 
-```js
-contrastsObj = obj.Contrasts("158294");
-```
+'optionTemplate':'#optiontemplatename'
+
+11. Options Place
+
+In html we call id ABC so all features template will call in #ABC
+for e.g in html body we have to add
+
+<body>
+<div id ="ABC">product options will appear here </div>
+</body>
+_______________________________________________________________________________
+
+11. Isoptions
+
+if we want to show options(straight cuff, beveled cuff...) in seperated we can pass boolean 'true' . If we give false options and features will be listed in same place
+
+ In Example we are using
+'Isoptions':'true'  
+
+_______________________________________________________________________________
 
 # How to use JsRender 
 
@@ -286,6 +271,7 @@ You should only care about creating template
 From a template declared as markup in a script block:
 
 ```js
+
 <script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script>
 ```
 
