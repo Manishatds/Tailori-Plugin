@@ -50,15 +50,13 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
   <html>
   <head>	
   <script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script>
-  <head/>
-  
-  Binding template "myTemplate" in html body will show result
-   
+  <head/>  
+  Binding template "myTemplate" in html body will show result   
   <body>
    <div id="myTemplate">In this Id your all var data will call     
-   </div>
-   
+   </div>   
   </body>
+--  
 
 # Documentation
 
