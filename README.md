@@ -144,7 +144,7 @@ Men-Shirt, Men-Suit, Men-Pant
   
 ('Product':'MEN-SUIT' OR 'Product':'MEN-PANT'...)   
 As we change Product the 3D Product will appear on Page 
-In Example we are using
+##### In Example we are using
 'Product':'MEN-SHIRT' 
 
 
@@ -154,7 +154,7 @@ We have to create template id where we call ids, this template will call as page
 
 for e.g ('Product Template':#Template name  ,'Product Template':#template01......)  
 
-In Example we are using
+##### In Example we are using
 'Product Template':#div-1
 _______________________________________________________________________________
 
