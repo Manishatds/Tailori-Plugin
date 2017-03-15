@@ -288,7 +288,7 @@ Products we are using{{for product}}-------{{for}}
 Options we are using{{for options}}-----{{for}}  
 Contast we are using{{for contrast}}-----{{for}}  
 
-	<script id="theTmpl" type="text/x-jsrender">
+<script id="theTmpl" type="text/x-jsrender">
 
 	<div class="panel-group" id="accordion2">
 		{{for Product}}
@@ -330,7 +330,7 @@ Contast we are using{{for contrast}}-----{{for}}
 		{{/for}}
 	</div>
 
-	</script>
+</script>
 
 
 _______________________________________________________________________________
@@ -412,7 +412,7 @@ _______________________________________________________________________________
 		</div>
 	</div>	
 </script>
-```
+
 _______________________________________________________________________________
 
 If you want to use show options and feature dynamically you can create three template
@@ -425,7 +425,7 @@ if *IsOptionVisible=false*  or Product contain only one option then it will dire
 
 ### Example for Product Template
 
-	<script id="theTmpl33" type="text/x-jsrender">
+<script id="theTmpl33" type="text/x-jsrender">
 		<li id="Fab">
 			<a><span>Fabrics</span></a>
 		</li>
@@ -439,13 +439,13 @@ if *IsOptionVisible=false*  or Product contain only one option then it will dire
 		 <li id="Monogram">
 			  <a><span>Monogram</span></a>
 		 </li>
-	 </script>
+ </script>
 _____________________________________________________________________________
 
 ### Example for Option Template
 
 
-	<script id="optionsTemplate" type="text/x-jsrender">
+<script id="optionsTemplate" type="text/x-jsrender">
 	 {{for Options}}
 
 	      <li id='{{:Id}}'>
@@ -455,12 +455,12 @@ _____________________________________________________________________________
 	      </li>
 
 	  {{/for}}
-	 </script>
+ </script>
 _______________________________________________________________________________
 
 ### Example for Feature Template
 
-		<script id="FeaturesTemplate" type="text/x-jsrender">
+<script id="FeaturesTemplate" type="text/x-jsrender">
 		    {{for Features}}
 		      <li>
 			<a href="#" style="background-image:url({{:ImagesUrl}}); background-repeat:no-repeat; background-size:100%;">
@@ -468,7 +468,7 @@ _______________________________________________________________________________
 			</a>
 		      </li>
 		    {{/for}}
-		 </script>
+ </script>
 	
 _______________________________________________________________________________
 
@@ -476,7 +476,8 @@ _______________________________________________________________________________
 
 ### Example for Monogram Template
 
-	<script id="MonogramTemplate2" type="text/x-jsrender">
+
+<script id="MonogramTemplate2" type="text/x-jsrender">
 	<div class="form-group">
 	 <label for="sel1">Monogram Placement:</label>
 	 <select class="form-control" id="sel1">
@@ -507,8 +508,8 @@ _______________________________________________________________________________
 	      {{/for}}
 	  </ul>
 	</div>
-	</script>
-```
+</script>
+
 
 
 
