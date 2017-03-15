@@ -288,49 +288,49 @@ Products we are using{{for product}}-------{{for}}
 Options we are using{{for options}}-----{{for}}  
 Contast we are using{{for contrast}}-----{{for}}  
 
-<script id="theTmpl" type="text/x-jsrender">
+	<script id="theTmpl" type="text/x-jsrender">
 
-	<div class="panel-group" id="accordion2">
-		{{for Product}}
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{:Id}}">
-						 <img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
-						</a>
-					</h4>
-				</div>
-				<div id="collapse{{:Id}}" class="panel-collapse collapse">
-					<div class="panel-body">
-						<table class="table">
-							{{for Options}}
+		<div class="panel-group" id="accordion2">
+			{{for Product}}
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{:Id}}">
+							 <img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
+							</a>
+						</h4>
+					</div>
+					<div id="collapse{{:Id}}" class="panel-collapse collapse">
+						<div class="panel-body">
+							<table class="table">
+								{{for Options}}
 
-								{{for Features}}		
-									<tr id="{{:Id}}">
-										<td>
-											<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
-										</td>
-									</tr>
+									{{for Features}}		
+										<tr id="{{:Id}}">
+											<td>
+												<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
+											</td>
+										</tr>
+									{{/for}}
+
+
+
 								{{/for}}
-
-
-
-							{{/for}}
-							{{for Contrasts}}		
-									<tr id="{{:Id}}">
-										<td>
-											<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
-										</td>
-									</tr>
-								{{/for}}
-						</table >
+								{{for Contrasts}}		
+										<tr id="{{:Id}}">
+											<td>
+												<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
+											</td>
+										</tr>
+									{{/for}}
+							</table >
+						</div>
 					</div>
 				</div>
-			</div>
-		{{/for}}
-	</div>
+			{{/for}}
+		</div>
 
-</script>
+	</script>
 
 
 _______________________________________________________________________________
