@@ -98,9 +98,8 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | OnRenderChange       | This callback fire when rendered images are ready to display i.e. after changing he element when result is get from textronics api also this callback have one parameter which array type (*if you want to render image by yourself then use this parameter and then there no need to give <b>ImageSource</b> option in plugin initialization* ) |
 
 ## Example
--------------------------
 
-Public methods are usable on tailori objects
+Using Tailori Plugin
 
 ```js    
     <script>
