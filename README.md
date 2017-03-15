@@ -1,9 +1,8 @@
 <img src="icon.png" align="right" />
 
-# Tailori
+# Tailori API 
 
-This guide will teach you how to build a textronics Tailor-i Plugin in your current website and access services!
-
+Textronic design System created an interactive platform for bespoke clothing. Textronics Tailori API is how you can access that data, In fact, almost all the functionality that runs Tailor I. 
 
 # Features
 
