@@ -140,7 +140,7 @@ function GetProduct(){
 ```
 ------------------------------------------------
 
-1. Product
+###1. Product  
  Men-Shirt, Men-Suit, Men-Pant
 ( 'Product':'MEN-SUIT' OR 'Product':'MEN-PANT'...)
 As we change Product the 3D Product will appear on Page
@@ -149,7 +149,7 @@ In Example we are using
 'Product':'MEN-SHIRT' 
 ______________________________________________________________________________
 
-2. Product Template
+###2. Product Template  
 
 We have to create template id where we call ids, this template will call as page opens.
 
@@ -158,7 +158,7 @@ for e.g ('Product Template':#Template name  ,'Product Template':#template01.....
 'Product Template':#div-1
 ______________________________________________________________________________
 
-3. Img-Source
+###3. Img-Source  
 Html container for 3d Image
 ('Image Source'':'#img-div', 'Image Source'':'#garments', 'Image Source'':'#draping-region')
  In Example we are using
