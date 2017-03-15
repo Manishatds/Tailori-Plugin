@@ -145,14 +145,8 @@ Men-Shirt, Men-Suit, Men-Pant
 ('Product':'MEN-SUIT' OR 'Product':'MEN-PANT'...)   
 As we change Product the 3D Product will appear on Page 
 ##### In Example we are using
-
-
-
-
 'Product':'MEN-SHIRT'
-
-
-
+_______________________________________________________________________________
 
 ### Product Template  
 
@@ -176,7 +170,7 @@ _______________________________________________________________________________
 
 Serviceurl is the url where we Place all our data that we need to call, for e.g product, draping parts, buttons, fabrics
   
- In Example we are using
+ ##### In Example we are using
 'ServiceUrl':''http://textronic.online/WEB_API'',
 _______________________________________________________________________________
 
@@ -187,14 +181,14 @@ SpecificRender option is used zoom specific Part of Img
 When we Pass Boolean 'true' then we can zoom particular part on img for e.g Collar, Sleeve
 if we put 'false' it wont show zoom.
 
- In Example we are using
+ ##### In Example we are using
 'SpecificRender':true,
 _______________________________________________________________________________
 
 ### Auto Alignment (Currently not working)
 Auto Alignment is the option for Front View and Back View it shows backdetails and front details. so we have to pass boolean True or False
 
- In Example we are using
+##### In Example we are using
 'AutoAlignment':false,
 _______________________________________________________________________________
 
@@ -208,7 +202,7 @@ To add Monogram pass string value true other wise pass string false
 Same as product template we create template for Monogram.
 in template we can add: font, text, and placing area to show monogram Img. we can add Monogram on Pocket, Collar
 
- In Example we are using
+ ##### In Example we are using
 'MonogramTemplate':#theTmplm
 
 ### MonogramPlace
@@ -218,7 +212,7 @@ for e.g in html body we have to add
 <div id ="monosublist"> for monogram template</div>
 </html>
 
- In Example we are using
+ ##### In Example we are using
 'MonogramPlace':#monosublist'
 _______________________________________________________________________________
 
@@ -262,7 +256,7 @@ _______________________________________________________________________________
 
 if we want to show options(straight cuff, beveled cuff...) in seperated we can pass boolean 'true' . If we give false options and features will be listed in same place
 
- In Example we are using
+ ##### In Example we are using
 'Isoptions':'true'  
 
 _______________________________________________________________________________
