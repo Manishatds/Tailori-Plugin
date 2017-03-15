@@ -10,7 +10,6 @@ This guide will teach you how to build a textronics Tailor-i Plugin in your curr
 To know more about features of TheGuide, continue reading our documentation and check our available components.
 
 * [Element Rendering](#)
-
   It allows to render Product, options & features 
 	
 * [Contrast Options](#)
