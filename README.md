@@ -140,10 +140,10 @@ function GetProduct(){
 ```
 ------------------------------------------------
 
-###1. Product  
- Men-Shirt, Men-Suit, Men-Pant
-( 'Product':'MEN-SUIT' OR 'Product':'MEN-PANT'...)
-As we change Product the 3D Product will appear on Page
+###Product  
+ Men-Shirt, Men-Suit, Men-Pant  
+( 'Product':'MEN-SUIT' OR 'Product':'MEN-PANT'...)   
+As we change Product the 3D Product will appear on Page   
 
 In Example we are using
 'Product':'MEN-SHIRT' 
