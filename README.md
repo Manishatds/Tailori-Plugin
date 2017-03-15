@@ -13,7 +13,6 @@ It provides following features:
 * [Summary](#)
 * [Save and load favourite look](#)
 
-# Demo
 
 [Click here](https://sagar-tds.github.io/Tailori-Plugin) for live demo.
 
