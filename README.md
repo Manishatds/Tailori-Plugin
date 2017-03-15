@@ -283,7 +283,7 @@ Here's a first example of the power and simplicity of JsRender templates:
 
 A template (with a conditional section using an {{for}}-------{{for}}, tag):
 
-In Example we are using  
+ ##### In Example we are using  
 Products we are using{{for product}}-------{{for}}  
 Options we are using{{for options}}-----{{for}}  
 Contast we are using{{for contrast}}-----{{for}}  
@@ -293,7 +293,7 @@ Contast we are using{{for contrast}}-----{{for}}
 
 	<div class="panel-group" id="accordion2">
 		{{for Product}}
-			<div class="panel panel-default">
+		 <div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" 
@@ -301,37 +301,37 @@ Contast we are using{{for contrast}}-----{{for}}
 						 <img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
 															</a>
 				</h4>
-			</div>
-			<div id="collapse{{:Id}}" class="panel-collapse collapse">
-				<div class="panel-body">
-					<table class="table">
-						{{for Options}}
+		</div>
+		<div id="collapse{{:Id}}" class="panel-collapse collapse">
+			<div class="panel-body">
+				<table class="table">
+					{{for Options}}
 						
-							{{for Features}}		
-								<tr id="{{:Id}}">
-									<td>
-										<span class="glyphicon glyphicon-chevron-right"></span>
-                                                                                 <a href="#">{{:Name}}</a>						
-									</td>
-								</tr>
-							{{/for}}
+						{{for Features}}		
+							<tr id="{{:Id}}">
+								<td>
+									<span class="glyphicon glyphicon-chevron-right"></span>
+                                                                         <a href="#">{{:Name}}</a>						
+								</td>
+							</tr>
+					{{/for}}
 							
 							
 							
-						{{/for}}
-						{{for Contrasts}}		
-								<tr id="{{:Id}}">
-									<td>
-										<span class="glyphicon glyphicon-chevron-right"></span>
+					{{/for}}
+					{{for Contrasts}}		
+							<tr id="{{:Id}}">
+								<td>
+									<span class="glyphicon glyphicon-chevron-right"></span>
                                                                                 <a href="#">{{:Name}}</a>
-										</td>
-									</tr>
-								{{/for}}
-						</table >
-					</div>
-				</div>
+								</td>
+							</tr>
+						{{/for}}
+				</table >
 			</div>
-		{{/for}}
+		 </div>
+		</div>
+                        {{/for}}
 	</div>
 
     </script>													
