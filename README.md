@@ -17,7 +17,9 @@ It provides following features:
 
 __________________________________________________________________________________________________________________________________
 
-#Dependency
+Dependencies
+
+[jsrender.js] & [jquery.tds.js]
 
 The plugin has hard dependency on [jsrender.js](https://www.jsviews.com). You can download it from [here](https://www.jsviews.com/download/jsrender.min.js) (To download, right-click and select “Save as…” from the menu).
 
