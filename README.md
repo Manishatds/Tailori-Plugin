@@ -162,7 +162,7 @@ _______________________________________________________________________________
 Html container for 3d Image   
 ('Image Source'':'#img-div', 'Image Source'':'#garments', 'Image Source'':'#draping-region')
   
- In Example we are using
+##### In Example we are using
 'Product Template': #img-div
 _______________________________________________________________________________
 
@@ -181,7 +181,7 @@ SpecificRender option is used zoom specific Part of Img
 When we Pass Boolean 'true' then we can zoom particular part on img for e.g Collar, Sleeve
 if we put 'false' it wont show zoom.
 
- ##### In Example we are using
+##### In Example we are using
 'SpecificRender':true,
 _______________________________________________________________________________
 
@@ -191,18 +191,18 @@ Auto Alignment is the option for Front View and Back View it shows backdetails a
 ##### In Example we are using
 'AutoAlignment':false,
 _______________________________________________________________________________
-
  
  ####     a) Monogram      b) Monogram Template     c) Monogram Place
    
-### 'Monogram':true, or .'Monogram':false, 
+### Monogram
+'Monogram':true, or .'Monogram':false, 
 To add Monogram pass string value true other wise pass string false
 
 ### MonogramTemplate
 Same as product template we create template for Monogram.
 in template we can add: font, text, and placing area to show monogram Img. we can add Monogram on Pocket, Collar
 
- ##### In Example we are using
+##### In Example we are using
 'MonogramTemplate':#theTmplm
 
 ### MonogramPlace
