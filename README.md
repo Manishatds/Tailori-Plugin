@@ -43,21 +43,21 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 
 
 # Templates
-  ##Binding Element Attributes  
+  ##  Binding Element Attributes  
   In addition to normal text, you may also want to have your templates contain HTML elements whose attributes are bound to the
-  controller.
+  controller. 
 
   <html>
   <head>	
-  <script id="myTemplate" type="text/x-jsrender"><div id="logo"><img src={{logoUrl}} alt="Logo"></div></script>
+  <script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script>
   <head/>
   
   Binding template "myTemplate" in html body will show result
    
   <body>
-   <div id="myTemplate"> 
-     <div id="logo"><img src="http://www.example.com/images/logo.png" alt="Logo"></div>
+   <div id="myTemplate">In this Id your all var data will call     
    </div>
+   
   </body>
 
 # Documentation
