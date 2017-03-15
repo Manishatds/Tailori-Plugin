@@ -146,11 +146,13 @@ Men-Shirt, Men-Suit, Men-Pant
 As we change Product the 3D Product will appear on Page 
 ##### In Example we are using
 
-----js
 
-'Product':'MEN-SHIRT' 
 
-----
+
+'Product':'MEN-SHIRT'
+
+
+
 
 ### Product Template  
 
