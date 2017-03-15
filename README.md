@@ -192,8 +192,8 @@ Auto Alignment is the option for Front View and Back View it shows backdetails a
 'AutoAlignment':false,
 _______________________________________________________________________________
 
- Monogram
-     a) Monogram      b) Monogram Template     c) Monogram Place
+ 
+ ####     a) Monogram      b) Monogram Template     c) Monogram Place
    
 ### 'Monogram':true, or .'Monogram':false, 
 To add Monogram pass string value true other wise pass string false
@@ -241,6 +241,8 @@ _______________________________________________________________________________
 We have to create template how product options will display in broswer. If product is Cuff then options will be straight cuff, beveled cuff...and features will be single bottom cuff, double bottom cuff....
 
 'optionTemplate':'#optiontemplatename'
+
+_______________________________________________________________________________
 
 ### Options Place
 
