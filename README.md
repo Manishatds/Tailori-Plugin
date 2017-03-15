@@ -138,7 +138,6 @@ function GetProduct(){
 
       
 ```
-------------------------------------------------
 
 ### Product  
 Men-Shirt, Men-Suit, Men-Pant
@@ -157,12 +156,12 @@ for e.g ('Product Template':#Template name  ,'Product Template':#template01.....
 
 In Example we are using
 'Product Template':#div-1
-
-----------------------------------------
+_______________________________________________________________________________
 
 ### Img-Source  
-Html container for 3d Image
+Html container for 3d Image   
 ('Image Source'':'#img-div', 'Image Source'':'#garments', 'Image Source'':'#draping-region')
+  
  In Example we are using
 'Product Template': #img-div
 _______________________________________________________________________________
@@ -170,6 +169,7 @@ _______________________________________________________________________________
 ### ServiceUrl
 
 Serviceurl is the url where we Place all our data that we need to call, for e.g product, draping parts, buttons, fabrics
+  
  In Example we are using
 'ServiceUrl':''http://textronic.online/WEB_API'',
 _______________________________________________________________________________
