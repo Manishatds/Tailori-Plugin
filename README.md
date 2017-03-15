@@ -208,9 +208,12 @@ in template we can add: font, text, and placing area to show monogram Img. we ca
 ### MonogramPlace
 In html we call id monosublist so all Monogram template will render in #monosublist
 for e.g in html body we have to add
+
+
 <html>
 <div id ="monosublist"> for monogram template</div>
 </html>
+
 
  ##### In Example we are using
 'MonogramPlace':#monosublist'
