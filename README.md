@@ -141,15 +141,15 @@ function GetProduct(){
 ------------------------------------------------
 
 ### Product  
- Men-Shirt, Men-Suit, Men-Pant  
-( 'Product':'MEN-SUIT' OR 'Product':'MEN-PANT'...)   
-As we change Product the 3D Product will appear on Page   
-
+Men-Shirt, Men-Suit, Men-Pant
+  
+('Product':'MEN-SUIT' OR 'Product':'MEN-PANT'...)   
+As we change Product the 3D Product will appear on Page 
 In Example we are using
 'Product':'MEN-SHIRT' 
-----------------------------------------
 
-###2. Product Template  
+
+### Product Template  
 
 We have to create template id where we call ids, this template will call as page opens.  
 
@@ -160,21 +160,21 @@ In Example we are using
 
 ----------------------------------------
 
-###3. Img-Source  
+### Img-Source  
 Html container for 3d Image
 ('Image Source'':'#img-div', 'Image Source'':'#garments', 'Image Source'':'#draping-region')
  In Example we are using
 'Product Template': #img-div
 _______________________________________________________________________________
 
-4. ServiceUrl
+### ServiceUrl
 
 Serviceurl is the url where we Place all our data that we need to call, for e.g product, draping parts, buttons, fabrics
  In Example we are using
 'ServiceUrl':''http://textronic.online/WEB_API'',
 _______________________________________________________________________________
 
-5. SpecificRender
+### SpecificRender
 
 SpecificRender option is used zoom specific Part of Img
 
@@ -185,7 +185,7 @@ if we put 'false' it wont show zoom.
 'SpecificRender':true,
 _______________________________________________________________________________
 
-6. Auto Alignment (Currently not working)
+### Auto Alignment (Currently not working)
 Auto Alignment is the option for Front View and Back View it shows backdetails and front details. so we have to pass boolean True or False
 
  In Example we are using
@@ -195,17 +195,17 @@ _______________________________________________________________________________
  Monogram
      a) Monogram      b) Monogram Template     c) Monogram Place
    
-7 .'Monogram':true, or .'Monogram':false, 
+### 'Monogram':true, or .'Monogram':false, 
 To add Monogram pass string value true other wise pass string false
 
-8. MonogramTemplate
+### MonogramTemplate
 Same as product template we create template for Monogram.
 in template we can add: font, text, and placing area to show monogram Img. we can add Monogram on Pocket, Collar
 
  In Example we are using
 'MonogramTemplate':#theTmplm
 
-9. MonogramPlace
+### MonogramPlace
 In html we call id monosublist so all Monogram template will render in #monosublist
 for e.g in html body we have to add
 <html>
@@ -216,14 +216,14 @@ for e.g in html body we have to add
 'MonogramPlace':#monosublist'
 _______________________________________________________________________________
 
-10. Feature Template
+### Feature Template
 
 Same as Mongram we have to create template how product features will display in broswer. If product is Cuff then options will be straight cuff, beveled cuff...and features will be single bottom cuff, double bottom cuff etc., so we will render this template in html head section
 
 'featureTemplate':'#Featuretemplatename'
 _______________________________________________________________________________
 
-11. Feature Place
+### Feature Place
 
 In html we call id xyz so all feature template will call in #xyz
 for e.g in html body we have to add
@@ -234,7 +234,7 @@ for e.g in html body we have to add
 'featurePlace':'#xyz'
 _______________________________________________________________________________
 
-10. Option Template
+### Option Template
 
 'optiontemplate':'#optionstemplatename'
 
@@ -242,7 +242,7 @@ We have to create template how product options will display in broswer. If produ
 
 'optionTemplate':'#optiontemplatename'
 
-11. Options Place
+### Options Place
 
 In html we call id ABC so all features template will call in #ABC
 for e.g in html body we have to add
@@ -252,7 +252,7 @@ for e.g in html body we have to add
 </body>
 _______________________________________________________________________________
 
-11. Isoptions
+### Isoptions
 
 if we want to show options(straight cuff, beveled cuff...) in seperated we can pass boolean 'true' . If we give false options and features will be listed in same place
 
