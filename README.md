@@ -95,7 +95,7 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | OnOptionChange       | This callback fire when user click on ProductOption i.e. High Coller, Low Coller, etc and this callback have one parameter i.e id of ProductOption  |
 | OnFeatureChange      | This callback fire when user click on ProductOptions Feature i.e. Half Sleeve, Full Sleeve etc and this callback have one parameter i.e id of ProductOptions Feaure |
 | OnContrastChange     | This callback fire when user click on Contrast  |
-| OnRenderChange       | This callback fire when rendered images are ready to display i.e. after changing he element when result is get from textronics api also this callback have one parameter which array type (*if you want to render image by yourself then use this parameter and then there no need to give <b>ImageSource</b> option in plugin initialization* ) |
+| OnRenderImageChange      | This callback fire when rendered images are ready to display i.e. after changing he element when result is get from textronics api also this callback have one parameter which array type (*if you want to render image by yourself then use this parameter and then there no need to give <b>ImageSource</b> option in plugin initialization* ) |
 
 
 # Public methods in plugin
@@ -221,16 +221,6 @@ It will return array of object
 ```js
 optionsObj = obj.Options("158294");
 ```
-
-
-### `Options()`
-Get an items of perticular product by sending it of product which you will get from OnProductChange
-It will return array of object
-
-```js
-optionsObj = obj.Options("158294");
-```
-
 
 ### `Features()`
 Get an items of perticular product by sending it of option which you will get from OnOptionChange
