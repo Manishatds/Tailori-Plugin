@@ -259,7 +259,7 @@ function GetProduct(){
 		{
 			'Product':'MEN-SHIRT',   //Product i.e men shirt,women shirt, men suit, etc
 			'ProductTemplate':'#theTmpl', //Tempalte id for Product
-			'ImageSource':'#img-div', //Container Id for place inages
+			'ImageSource':'#img-div', //Container Id for place images
 			'ServiceUrl':'http://textronic.online/WEB_API',
 			'AutoSpecific':false, //Auto specific view after selecting any feature
 			'AutoAlignment':false, //Auto alignment set according to selected element
@@ -292,7 +292,7 @@ _______________________________________________________________________________
 
 ### Product Template  
 
-We have to create template id where we call ids, this template will call as page opens.  
+We have to create template id where we call id's, this template will be called as the page opens.  
 
 for e.g ('Product Template':#Template name  ,'Product Template':#template01......)  
 
@@ -310,7 +310,7 @@ _______________________________________________________________________________
 
 ### ServiceUrl
 
-Serviceurl is the url where we Place all our data that we need to call, for e.g product, draping parts, buttons, fabrics
+ServiceuUrl is a url where we place all our data that we need to call, for e.g product, draping parts, buttons, fabrics, etc.
   
  ##### In Example we are using
 'ServiceUrl':''http://textronic.online/WEB_API'',
@@ -318,17 +318,17 @@ _______________________________________________________________________________
 
 ### SpecificRender
 
-SpecificRender option is used zoom specific Part of Img
+SpecificRender option is used to zoom specific Part of Img
 
-When we Pass Boolean 'true' then we can zoom particular part on img for e.g Collar, Sleeve
-if we put 'false' it wont show zoom.
+When we Pass Boolean 'true' then we can zoom particular part on img for e.g Collar, Sleeve, etc.
+if we put 'false' it won't show zoomed view.
 
 ##### In Example we are using
 'SpecificRender':true,
 _______________________________________________________________________________
 
 ### Auto Alignment (Currently not working)
-Auto Alignment is the option for Front View and Back View it shows backdetails and front details. so we have to pass boolean True or False
+Auto Alignment is the option for Front View and Back View. It shows back details and front details, so, we have to pass boolean True or False
 
 ##### In Example we are using
 'AutoAlignment':false,
@@ -338,11 +338,11 @@ _______________________________________________________________________________
    
 ### Monogram
 'Monogram':true, or .'Monogram':false, 
-To add Monogram pass string value true other wise pass string false
+To add Monogram pass string value true other wise pass string value false
 
 ### MonogramTemplate
 Same as product template we create template for Monogram.
-in template we can add: font, text, and placing area to show monogram Img. we can add Monogram on Pocket, Collar
+In template we can add: font, text, and placing area to show monogram. we can add Monogram on Pocket, Collar, etc.,
 
 ##### In Example we are using
 'MonogramTemplate':#theTmplm
@@ -363,14 +363,14 @@ _______________________________________________________________________________
 
 ### Feature Template
 
-Same as Mongram we have to create template how product features will display in broswer. If product is Cuff then options will be straight cuff, beveled cuff...and features will be single bottom cuff, double bottom cuff etc., so we will render this template in html head section
+Same as Monogram we have to create template, how product features will display in browser. If product is Cuff then options will be straight cuff, beveled cuff,etc. and features will be single bottom cuff, double bottom cuff etc., so we will render this template in html head section
 
 'featureTemplate':'#Featuretemplatename'
 _______________________________________________________________________________
 
 ### Feature Place
 
-In html we call id xyz so all feature template will call in #xyz
+In html we call id 'xyz' so all feature template will call in #xyz
 for e.g in html body we have to add
 
 	<html>
@@ -384,7 +384,7 @@ _______________________________________________________________________________
 
 'optiontemplate':'#optionstemplatename'
 
-We have to create template how product options will display in broswer. If product is Cuff then options will be straight cuff, beveled cuff...and features will be single bottom cuff, double bottom cuff....
+We have to create template how product options will display in broswer. If product is Cuff then options will be straight cuff, beveled cuff,etc. and features will be single bottom cuff, double bottom cuff, etc.
 
 'optionTemplate':'#optiontemplatename'
 
@@ -392,7 +392,7 @@ _______________________________________________________________________________
 
 ### Options Place
 
-In html we call id ABC so all features template will call in #ABC
+In html we call id 'ABC' so all features template will call in #ABC
 for e.g in html body we have to add
 
 	<html>
@@ -402,7 +402,7 @@ _______________________________________________________________________________
 
 ### Isoptions
 
-if we want to show options(straight cuff, beveled cuff...) in seperated we can pass boolean 'true' . If we give false options and features will be listed in same place
+If we want to show options(straight cuff, beveled cuff...) seperately, pass boolean 'true' and If we give false, options and features will be listed in same place
 
  ##### In Example we are using
 'Isoptions':'true'  
@@ -425,7 +425,7 @@ Here's a first example of the power and simplicity of JsRender templates:
 
 A template (with a conditional section using an {{for}}-------{{for}}, tag):
 
- ##### In Example we are using  
+ ##### In Example
 Products we are using{{for product}}-------{{for}}  
 Options we are using{{for options}}-----{{for}}  
 Contast we are using{{for contrast}}-----{{for}}  
@@ -475,7 +475,7 @@ Contast we are using{{for contrast}}-----{{for}}
 ```
 _______________________________________________________________________________
 
-## Exmaple of template for boostrap nav panel 
+## Example of template for bootstrap nav panel 
 
 ```html
 <script id="theTmpl1" type="text/x-jsrender">
@@ -511,13 +511,13 @@ _______________________________________________________________________________
 ```
 _______________________________________________________________________________
 
-If you want to use show options and feature dynamically you can create three template
+If you want to show options and feature dynamically, you can create three template
  
 1. For Product
 2. For Option
 3. For Feature
 
-if *IsOptionVisible=false*  or Product contain only one option then it will direct show the all feature from perticular Product
+if *IsOptionVisible=false*  or Product contains only one option then it will directly show  all the features from particular Product
 
 ### Example for Product Template
 
