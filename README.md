@@ -436,9 +436,10 @@ Contast we are using{{for contrast}}-----{{for}}
 <div class="panel-group" id="accordion2">
 {{for Product}}
 <div class="panel panel-default">
-<div class="panel-heading">
+	<div class="panel-heading">
 	<h4 class="panel-title">
-	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{:Id}}">
+	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" 
+							    href="#collapse{{:Id}}">
 	<img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
 	</a>
 	</h4>
@@ -529,7 +530,7 @@ if *IsOptionVisible=false*  or Product contain only one option then it will dire
 	{{for Product}}
 	<li>
 	<a class="nav-toggle" href="#" style="background-image:url({{:ImageSource}}); 
-	background-repeat:no-repeat;">
+	                                               background-repeat:no-repeat;">
 	<span>{{:Name}}</span>
 	</a>
 	</li>
