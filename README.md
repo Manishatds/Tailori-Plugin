@@ -80,6 +80,9 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | AutoSpecific                                   | if *true* detailed view of specific part is automatically renderd *else* not   |         |
 | AutoAlignment                                  | if *true* view of Apparel change according to seleted feature |         |
 
+Note: 	* - Required 
+	*<sup><sup>n<sup><sup> - All Properties marked as *<sup><sup>n<sup><sup> Required.
+	
 ## Data Attributes
 | Data Attribute       | Description                                                    |
 | ---------------------|:--------------------------------------------------------------|
@@ -108,7 +111,7 @@ Public methods are usable on tailori objects
 			'Product':'MEN-SHIRT',   //Product i.e men shirt,women shirt, men suit, etc
 			'ProductTemplate':'#theTmpl', //Template id for Product
 			'ImageSource':'#img-div', //Container Id for place images
-			'ServiceUrl':'http://172.16.1.63'
+			'ServiceUrl':'http://textronic.online' 
      });
       
 ```
@@ -215,24 +218,24 @@ Load Look
 ```
 
 ### `Options()`
-Gets an item of particular product by sending it to product which you will get from OnProductChange.
-It will return array of object
+Gets an item of particular product by sending it the product id which you will get from OnProductChange.
+It will return array of objects.
 
 ```js
 optionsObj = obj.Options("158294");
 ```
 
 ### `Features()`
-Get an items of particular product by sending it of option which you will get from OnOptionChange
-It will return array of object
+Get an items of particular product by sending it the option id which you will get from OnOptionChange.
+It will return array of objects.
 
 ```js
 featuresObj = obj.Features("75321598");
 ```
 
 ### `Contrasts()`
-Get an items of particular product by sending it of product which you will get from OnProductChange
-It will return array of object
+Gets an item of particular product by sending it the product id which you will get from OnProductChange.
+It will return array of objects.
 
 ```js
 contrastsObj = obj.Contrasts("158294");
