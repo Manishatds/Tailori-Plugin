@@ -482,25 +482,25 @@ _______________________________________________________________________________
 <div class="col-md-12">
 <div class="panel with-nav-tabs panel-default">
   <div class="panel-heading">
-		<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs">
 		{{for Product}}                            
-		<li><a href="#tab{{:Id}}" data-toggle="tab">
-		<img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}</a>
+	<li><a href="#tab{{:Id}}" data-toggle="tab">
+	<img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}</a>
 		</li>                          
 		{{/for}}   
-		</ul>
+	</ul>
    </div>
    <div class="panel-body">
        <div class="tab-content">
 	{{for Product}}					
         <div class="tab-pane fade " id="tab{{:Id}}">
-		<ul class="list-group">
+	<ul class="list-group">
 		{{for Options}}
 		  {{for Features}}
-		  <li class="list-group-item" id="{{:Id}}">{{:Name}}</li>						
+	<li class="list-group-item" id="{{:Id}}">{{:Name}}</li>						
 		  {{/for}}   
 		{{/for}}   
-		</ul>
+	</ul>
 	</div>
 	{{/for}}                           
 	</div>
