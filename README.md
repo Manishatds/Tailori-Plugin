@@ -80,8 +80,8 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | AutoSpecific                                   | if *true* detailed view of specific part is automatically renderd *else* not   |         |
 | AutoAlignment                                  | if *true* view of Apparel change according to seleted feature |         |
 
-Note:
-* - Required              
+Note: 
+*- Required              
 *<sup><sup>n</sup></sup> - All Properties marked as *<sup><sup>n</sup></sup> Required.
 	
 ## Data Attributes
