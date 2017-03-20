@@ -81,7 +81,7 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | AutoAlignment                                  | if *true* view of Apparel change according to seleted feature |         |
 
 Note: 	* - Required 
-	*<sup><sup>n<sup><sup> - All Properties marked as *<sup><sup>n<sup><sup> Required.
+	*<sup><sup>n</sup></sup> - All Properties marked as *<sup><sup>n</sup></sup> Required.
 	
 ## Data Attributes
 | Data Attribute       | Description                                                    |
@@ -218,7 +218,7 @@ Load Look
 ```
 
 ### `Options()`
-Gets an item of particular product by sending it the product id which you will get from OnProductChange.
+Gets an item of particular product by sending it the product-id which you will get from OnProductChange.
 It will return array of objects.
 
 ```js
@@ -226,7 +226,7 @@ optionsObj = obj.Options("158294");
 ```
 
 ### `Features()`
-Get an items of particular product by sending it the option id which you will get from OnOptionChange.
+Get an items of particular product by sending it the option-id which you will get from OnOptionChange.
 It will return array of objects.
 
 ```js
@@ -234,7 +234,7 @@ featuresObj = obj.Features("75321598");
 ```
 
 ### `Contrasts()`
-Gets an item of particular product by sending it the product id which you will get from OnProductChange.
+Gets an item of particular product by sending it the product-id which you will get from OnProductChange.
 It will return array of objects.
 
 ```js
