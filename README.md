@@ -99,7 +99,7 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 
 
 # Public methods in plugin
--------------------------
+
 
 Public methods are usable on tailori objects
 
@@ -248,7 +248,7 @@ It will return array of object
 contrastsObj = obj.Contrasts("158294");
 ```
 
-
+------------------------------------------------
 # Example
 
 Using Tailori Plugin
