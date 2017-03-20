@@ -81,8 +81,8 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | AutoAlignment                                  | if *true* view of Apparel change according to seleted feature |         |
 
 **Note:**     
-__*__: Required  
-__*<sup><sup>n</sup></sup>__: All Properties marked as *<sup><sup>n</sup></sup> Required.
+*****: Required  
+***<sup><sup>n</sup></sup>**: All Properties marked as *<sup><sup>n</sup></sup> Required.
 	
 ## Data Attributes
 | Data Attribute       | Description                                                    |
