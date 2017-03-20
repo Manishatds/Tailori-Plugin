@@ -249,7 +249,7 @@ contrastsObj = obj.Contrasts("158294");
 ```
 
 
-## Example
+# Example
 
 Using Tailori Plugin
 
