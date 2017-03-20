@@ -432,92 +432,42 @@ Contast we are using{{for contrast}}-----{{for}}
 
 ```html
 <script id="theTmpl" type="text/x-jsrender">
-
-		<div class="panel-group" id="accordion2">
-			{{for Product}}
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{:Id}}">
-							 <img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
-							</a>
-						</h4>
-					</div>
-					<div id="collapse{{:Id}}" class="panel-collapse collapse">
-						<div class="panel-body">
-							<table class="table">
-								{{for Options}}
-
-									{{for Features}}		
-										<tr id="{{:Id}}">
-											<td>
-												<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
-											</td>
-										</tr>
-									{{/for}}
-
-
-
-								{{/for}}
-								{{for Contrasts}}		
-										<tr id="{{:Id}}">
-											<td>
-												<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
-											</td>
-										</tr>
-									{{/for}}
-							</table >
-						</div>
-					</div>
-				</div>
-			{{/for}}
-		</div>
-
-	</script>
-```
-
-_______________________________________________________________________________
-
-## Exmaple of template for boostrap accordion
-
-```html
-<script id="theTmpl" type="text/x-jsrender">
 		
 <div class="panel-group" id="accordion2">
-	{{for Product}}
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{:Id}}">
-					 <img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
-					</a>
-				</h4>
-			</div>
-			<div id="collapse{{:Id}}" class="panel-collapse collapse">
-				<div class="panel-body">
-					<table class="table">
-						{{for Options}}
+{{for Product}}
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="panel-title">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{:Id}}">
+			<img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}}
+			</a>
+		</h4>
+	</div>
+	<div id="collapse{{:Id}}" class="panel-collapse collapse">
+		<div class="panel-body">
+			<table class="table">
+				{{for Options}}
 						
-							{{for Features}}		
-								<tr id="{{:Id}}">
-									<td>
-										<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
-									</td>
-								</tr>
-							{{/for}}							
-						{{/for}}
-						{{for Contrasts}}		
-								<tr id="{{:Id}}">
-									<td>
-										<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
-									</td>
-								</tr>
-							{{/for}}
-					</table >
-				</div>
-			</div>
+					{{for Features}}		
+						<tr id="{{:Id}}">
+							<td><span class="glyphicon glyphicon-chevron-right"></span>
+							    <a href="#">{{:Name}}</a>
+							</td>
+						</tr>
+					{{/for}}
+					{{/for}}
+					{{for Contrasts}}		
+						<tr id="{{:Id}}">
+							<td><span class="glyphicon glyphicon-chevron-right"></span>
+							    <a href="#">{{:Name}}</a>
+							</td>
+						</tr>
+				{{/for}}
+			</table >
 		</div>
-	{{/for}}
+	</div>
+</div>
+{{/for}}
 </div>
 
 </script>
