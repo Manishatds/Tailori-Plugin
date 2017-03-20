@@ -2,14 +2,14 @@
 
 # Tailori API 
 
-Textronic design System created an interactive platform for bespoke clothing. Textronics Tailori API is how you can access that data, In fact, almost all the functionality that runs Tailor I. 
+Textronic design System created an interactive platform for bespoke clothing. Textronics Tailori API is how you can access that data, In fact, almost all the functionality that runs in Tailor I. 
 
 # Features
 
 To know more about features of TheGuide, continue reading our documentation and check our available components.
 
 * [Element Rendering](#)  
-  It allows to render Product, options & features   
+  It allows you to render Product, options & features   
 	
 * [Contrast Options](#)  
   Allow user to apply contrast fabric on product
@@ -67,7 +67,7 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 ## Properties
 | Props                                          | Description  | Required
 | -----------------------------------------------|------------| -------:|
-| ServiceUrl                                     | Url of textronics tailori api provided you| * |
+| ServiceUrl                                     | Url of textronics tailori api | * |
 | Product                                        | Product Name | * | 
 | ProductTemplate                                | jsrender template for rendering options/elements | * |
 | ImageSource                                    | Image container where rendered images are placed (i.e. id, class or etc) if you want to manage rendered image by your own keep this empty |         |
@@ -84,18 +84,18 @@ ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive
 | Data Attribute       | Description                                                    |
 | ---------------------|:--------------------------------------------------------------|
 | data-tds-alignment   | Possible values are "next"/"previous" and  alignment Name |
-| data-tds-moption   | if value is ***text*** it used for input box for accept input text for monogram |
-|			| if value is ***priview*** it used for img tag for displaying priview of monogram |
+| data-tds-moption   | if value is ***text*** it used for input box for accepting input text for monogram |
+|			| if value is ***preview*** it used for img tag for displaying priview of monogram |
 
 
 ## Callbacks
 | Callback             | Description                                                    
 | ---------------------|:--------------------------------------------------------------|
-| OnProductChange      | This callback fire when user click on Product i.e. Coller, Cuff, Sleeves, etc and this callback have one parameter i.e id of Product |
-| OnOptionChange       | This callback fire when user click on ProductOption i.e. High Coller, Low Coller, etc and this callback have one parameter i.e id of ProductOption  |
-| OnFeatureChange      | This callback fire when user click on ProductOptions Feature i.e. Half Sleeve, Full Sleeve etc and this callback have one parameter i.e id of ProductOptions Feaure |
-| OnContrastChange     | This callback fire when user click on Contrast  |
-| OnRenderImageChange      | This callback fire when rendered images are ready to display i.e. after changing he element when result is get from textronics api also this callback have one parameter which array type (*if you want to render image by yourself then use this parameter and then there no need to give <b>ImageSource</b> option in plugin initialization* ) |
+| OnProductChange      | This callback fires when user click on Product i.e. Coller, Cuff, Sleeves, etc and this callback has one parameter i.e id of Product |
+| OnOptionChange       | This callback fires when user click on ProductOption i.e. High Coller, Low Coller, etc and this callback has one parameter i.e id of ProductOption  |
+| OnFeatureChange      | This callback fires when user click on ProductOptions Feature i.e. Half Sleeve, Full Sleeve etc and this callback has one parameter i.e id of ProductOptions Feaure |
+| OnContrastChange     | This callback fires when user click on Contrast  |
+| OnRenderImageChange      | This callback fires when rendered images are ready to display i.e. after changing the element when we get result from textronics api, also this callback has one parameter which array type (*if you want to render image by yourself then use this parameter and then there no need to give <b>ImageSource</b> option in plugin initialization* ) |
 
 
 # Public methods in plugin
@@ -107,7 +107,7 @@ Public methods are usable on tailori objects
     obj = $("#div-1").tailori({
 			'Product':'MEN-SHIRT',   //Product i.e men shirt,women shirt, men suit, etc
 			'ProductTemplate':'#theTmpl', //Template id for Product
-			'ImageSource':'#img-div', //Container Id for place inages
+			'ImageSource':'#img-div', //Container Id for place images
 			'ServiceUrl':'http://172.16.1.63'
      });
       
@@ -123,7 +123,7 @@ If you want to change the **product** i.e from men-shirt to men-suit use
 ### `Texture()`
 Get and Set the Texture (i.e.  fabric or color )  to apparel use 
 
-if you want apply fabric from textronics fabric library send id of fabric
+if you want to apply fabric from textronics fabric library send id of fabric
 ```js
   obj.Texture("fab12589");
 ```
@@ -169,7 +169,7 @@ if you want texture of contrast of apparel call method without passing parameter
 ------------------------------------------------
 
 ### `SpecificRender()`
-To show detailed view of specific part then send parameter ***true*** and to show normal view send ***false***
+To show detailed view of specific part, then send parameter ***true*** and to show normal view send ***false***
 
 ```js
 obj.SpecificRender(true);
@@ -177,8 +177,8 @@ obj.SpecificRender(true);
 ---------------------------------------------------------------------------
 
 ### `Summary()`
-To get the summery of apparel
-Method returen the object contain selected part and fabric information with cost 
+To get the summary of apparel
+Method return the object contain selected part and fabric information with cost 
 ```js
 obj.Summary();
 ```
@@ -197,9 +197,9 @@ obj.ResetProduct();
 ```
 
 ### `Look()`
-To get and set your favourite look (*i.e. if you want save your custmized apparel for feature use*)
+To get and set your favourite look (*i.e. if you want to save your custmized apparel for future use*)
 this will return you object which contain ***data*** and ***Image*** 
-If you want load your look next time send ***data***  to method 
+If you want to load your look next time send ***data***  to method 
 
 
 Get Look
@@ -215,7 +215,7 @@ Load Look
 ```
 
 ### `Options()`
-Get an items of perticular product by sending it of product which you will get from OnProductChange
+Gets an item of particular product by sending it to product which you will get from OnProductChange.
 It will return array of object
 
 ```js
@@ -223,7 +223,7 @@ optionsObj = obj.Options("158294");
 ```
 
 ### `Features()`
-Get an items of perticular product by sending it of option which you will get from OnOptionChange
+Get an items of particular product by sending it of option which you will get from OnOptionChange
 It will return array of object
 
 ```js
@@ -231,7 +231,7 @@ featuresObj = obj.Features("75321598");
 ```
 
 ### `Contrasts()`
-Get an items of perticular product by sending it of product which you will get from OnProductChange
+Get an items of particular product by sending it of product which you will get from OnProductChange
 It will return array of object
 
 ```js
