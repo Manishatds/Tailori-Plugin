@@ -6,7 +6,7 @@ Textronic design System have created an interactive platform for bespoke clothin
 
 # Features
 
-To know more about features of TheGuide, continue reading our documentation and check our available components.
+To know more about features of TheGuide, continue reading our documentation and check our available components.     
 It provides following features:
 
 * [Element Rendering](#)  
@@ -28,7 +28,7 @@ It provides following features:
   Provides Summary of your customised product and its details.	
 
 * [Save and load favourite look](#)  
-  Allow user to Save and custom product look.
+  Allows user to Save and custom product look.
 
   [View online Demo](https://sagar-tds.github.io/Tailori-Plugin)
 
@@ -45,7 +45,7 @@ iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archiv
 
 # Templates
   ##  Binding Element Attributes  
-  In addition to normal text, you may also want to have your templates contain HTML elements whose attributes are bound to the
+  In addition to the normal text, you may also want your templates to contain HTML elements whose attributes are bound to the
   controller. 
 	
 	
