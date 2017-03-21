@@ -68,7 +68,9 @@ iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archiv
 ## Properties
 | Props                                          | Description  | Required
 | -----------------------------------------------|------------| -------:|
-| ServiceUrl                                     | Url of textronics tailori api     ServiceuUrl is a url where we place all our data that we need to call, for e.g product, draping parts, buttons, fabrics, etc.| * |
+| ServiceUrl                                     | ServiceuUrl is a url where we place all our data that we need to call, for e.g product, draping parts, buttons, fabrics, etc.
+ It will be provided to you by textronics.
+     | * |
 | Product                                        | Product Name | * | 
 | ProductTemplate                                | jsrender template for rendering options/elements | * |
 | ImageSource                                    | Image container where rendered images are placed (i.e. id, class or etc) if you want to manage rendered image by your own keep this empty |         |
