@@ -69,7 +69,7 @@ iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archiv
 | Props                                          | Description  | Required
 | -----------------------------------------------|------------| -------:|
 | ServiceUrl                                     | ServiceUrl is a url where we place all our data that we need to call, for e.g product, draping parts, buttons, fabrics, etc.    **Provided by textronics.**  | * |
-| Product                                        | Product Name        For eg. 'Product':'MEN-SHIRT'| * | 
+| Product                                        | Product Name <br /> For eg. 'Product':'MEN-SHIRT'| * | 
 | ProductTemplate                                | jsrender template for rendering options/elements | * |
 | ImageSource                                    | Image container where rendered images are placed (i.e. id, class or etc) if you want to manage rendered image by your own keep this empty |         |
 | OptionsPlace                                   | Container for placing the ProductOptions | * <sup><sup>1</sup></sup> |         
