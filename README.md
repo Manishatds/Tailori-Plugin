@@ -300,19 +300,19 @@ But now we are using for textronics tailori, so we will mostly use {{for ...}} t
 
 Following object hierarchy provide you for creating template
 
-├──── Product
-│   │
-│   ├──── Options 
-│   │   │
-│   │   └── Features
-│   │
-│   └──── Contrasts
-│
-├──── MonogramPlacement
-│
-├──── MonogramFont
-│
-└──── MonogramColor
+├──── Product<br />
+│   │<br/>
+│   ├──── Options <br/>
+│   │   │<br/>
+│   │   └── Features<br/>
+│   │<br/>
+│   └──── Contrasts<br/>
+│<br/>
+├──── MonogramPlacement<br/>
+│<br/>
+├──── MonogramFont<br/>
+│<br/>
+└──── MonogramColor<br/>
 
 Following is a object structure of Product, Options, Features, Contrasts, MonogramPlacement, MonogramFont and MonogramColor which will be used for more detailing your template
 
