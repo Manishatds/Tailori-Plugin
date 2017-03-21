@@ -96,17 +96,17 @@ iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archiv
 ## Callbacks
 | Callback             | Description                                                    
 | ---------------------|:--------------------------------------------------------------|
-| OnProductChange      | This callback fires when user click on Product i.e. Coller, Cuff, Sleeves, etc and this callback has one parameter i.e id of Product |
-| OnOptionChange       | This callback fires when user click on ProductOption i.e. High Coller, Low Coller, etc and this callback has one parameter i.e id of ProductOption  |
-| OnFeatureChange      | This callback fires when user click on ProductOptions Feature i.e. Half Sleeve, Full Sleeve etc and this callback has one parameter i.e id of ProductOptions Feaure |
-| OnContrastChange     | This callback fires when user click on Contrast  |
-| OnRenderImageChange      | This callback fires when rendered images are ready to display i.e. after changing the element when we get result from textronics api, also this callback has one parameter which array type (*if you want to render image by yourself then use this parameter and then there no need to give <b>ImageSource</b> option in plugin initialization* ) |
+| OnProductChange      | This callback fires when user clicks on Product i.e. Coller, Cuff, Sleeves, etc and this callback has one parameter i.e id of Product |
+| OnOptionChange       | This callback fires when user clicks on ProductOptions i.e. High Coller, Low Coller, etc and this callback has one parameter i.e id of ProductOption  |
+| OnFeatureChange      | This callback fires when user clicks on ProductOptions Feature i.e. Half Sleeve, Full Sleeve etc and this callback has one parameter i.e id of ProductOptions Feaure |
+| OnContrastChange     | This callback fires when user clicks on Contrast  |
+| OnRenderImageChange      | This callback fires when rendered images are ready to display i.e. after changing the element when we get result from textronics api, also, this callback has one parameter which array type <br />(*if you want to render image by yourself then use this parameter and then there no need to give <b>ImageSource</b> option in plugin initialization* ) |
 
 
 # Public methods in plugin
 
 
-Public methods are usable on tailori objects
+To create Tailori object public methods are used.
 
 ```js    
     obj = $("#div-1").tailori({
@@ -183,28 +183,28 @@ obj.SpecificRender(true);
 
 ### `Summary()`
 To get the summary of apparel
-Method return the object contain selected part and fabric information with cost 
+Method returns the object contents i.e., selected part and fabric information with cost.
 ```js
 obj.Summary();
 ```
 -----------------------------------------------------------
 
 ### `ResetContrast()`
-To reset all contrast of apparel
+To reset all contrasts of apparels.
 ```js
 obj.ResetContrast();
 ```
 
 ### `ResetProduct()`
-To load default apparel 
+To load default apparels. 
 ```js
 obj.ResetProduct();
 ```
 
 ### `Look()`
-To get and set your favourite look (*i.e. if you want to save your custmized apparel for future use*)
-this will return you object which contain ***data*** and ***Image*** 
-If you want to load your look next time send ***data***  to method 
+To get and set your favourite look (*i.e. if you want to save your customized apparel for future use*)<br />
+This will return you object which contain ***data*** and ***Image*** <br/>
+If you want to load your look next time send ***data***  to the method. 
 
 
 Get Look
@@ -292,6 +292,36 @@ _______________________________________________________________________________
 
 # How to use JsRender and Creating Template
 JsRender is a light-weight but powerful templating engine.
+	
+From a template declared as markup in a script block:
+
+<script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script>
+But now we are using for textronics tailori, so we will mostly use {{for ...}} tag
+
+Following object hierarchy provide you for creating template
+
+├──── Product
+│   │
+│   ├──── Options 
+│   │   │
+│   │   └── Features
+│   │
+│   └──── Contrasts
+│
+├──── MonogramPlacement
+│
+├──── MonogramFont
+│
+└──── MonogramColor
+
+Following is a object structure of Product, Options, Features, Contrasts, MonogramPlacement, MonogramFont and MonogramColor which will be used for more detailing your template
+
+ Product/ Options/ Features/ Contrasts/ MonogramPlacement/ MonogramFont/ MonogramColor
+    │
+    ├── Id 
+    ├── Name
+    └── ImageSource
+
 
 Here's a first example of the power and simplicity of JsRender templates:
 
@@ -301,8 +331,6 @@ Here's a first example of the power and simplicity of JsRender templates:
 	    "ID":
 	    "name":
 	    "Imagesource":
-	
-
 
 A template (with a conditional section using an {{for}}-------{{for}}, tag):
 
