@@ -299,20 +299,20 @@ From a template declared as markup in a script block:
 But now we are using for textronics tailori, so we will mostly use {{for ...}} tag
 
 Following object hierarchy provide you for creating template
-
-├──── Product<br />
-│   │<br/>
-│   ├──── Options <br/>
-│   │   │<br/>
-│   │   └── Features<br/>
-│   │<br/>
-│   └──── Contrasts<br/>
-│<br/>
-├──── MonogramPlacement<br/>
-│<br/>
-├──── MonogramFont<br/>
-│<br/>
-└──── MonogramColor<br/>
+<pre>
+├──── Product
+│   │
+│   ├──── Options 
+│   │   │
+│   │   └── Features
+│   │
+│   └──── Contrasts
+│
+├──── MonogramPlacement
+│
+├──── MonogramFont
+│
+└──── MonogramColor</pre>
 
 Following is a object structure of Product, Options, Features, Contrasts, MonogramPlacement, MonogramFont and MonogramColor which will be used for more detailing your template
 
