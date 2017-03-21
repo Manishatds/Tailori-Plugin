@@ -297,8 +297,8 @@ JsRender is a light-weight but powerful templating engine.
 ## Define a template	
 From a template declared as markup in a script block:
 
-<code><script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script></code>
-<br/>
+<code><script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script></code>    
+    
 But now we are using for textronics tailori, so we will use {{for ...}} tag
 Following object hierarchy is provided to you for creating templates.
 <pre>
