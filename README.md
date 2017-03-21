@@ -46,7 +46,7 @@ iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archiv
 # Templates
   ##  Binding Element Attributes  
   In addition to the normal text, you may also want your templates to contain HTML elements whose attributes are bound to the
-  controller. 
+  controller.  
 	
 	
 	
