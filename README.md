@@ -292,13 +292,23 @@ _______________________________________________________________________________
 
 # How to use JsRender and Creating Template
 JsRender is a light-weight but powerful templating engine.
+Here's a first example of the power and simplicity of JsRender templates:
+
+
+	Some data:
 	
+	    "ID":
+	    "name":
+	    "Imagesource":
+	   
+ <br/>
+## Define a template
+<br/>	
 From a template declared as markup in a script block:
 
-<script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script>
-But now we are using for textronics tailori, so we will mostly use {{for ...}} tag
-
-Following object hierarchy provide you for creating template
+<script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script><br/>
+But now we are using for textronics tailori, so we will use {{for ...}} tag
+Following object hierarchy is provided to you for creating templates.
 <pre>
 ├──── Product
 │   │
@@ -314,30 +324,24 @@ Following object hierarchy provide you for creating template
 │
 └──── MonogramColor</pre>
 
-Following is a object structure of Product, Options, Features, Contrasts, MonogramPlacement, MonogramFont and MonogramColor which will be used for more detailing your template
-
+Following is an object structure of Product, Options, Features, Contrasts, MonogramPlacement, MonogramFont and MonogramColor which will be used for more detailing of your template:
+<pre>
  Product/ Options/ Features/ Contrasts/ MonogramPlacement/ MonogramFont/ MonogramColor
     │
     ├── Id 
     ├── Name
     └── ImageSource
+</pre>
 
-
-Here's a first example of the power and simplicity of JsRender templates:
-
-
-	Some data:
-	
-	    "ID":
-	    "name":
-	    "Imagesource":
 
 A template (with a conditional section using an {{for}}-------{{for}}, tag):
 
  ##### In Example
 Products we are using{{for product}}-------{{for}}  
 Options we are using{{for options}}-----{{for}}  
-Contast we are using{{for contrast}}-----{{for}}  
+Contast we are using{{for contrast}}-----{{for}} 
+
+## Example of template for bootstrap accordion 
 
 ```html
 <script id="theTmpl" type="text/x-jsrender">
