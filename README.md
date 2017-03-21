@@ -270,18 +270,19 @@ function GetProduct(){
 			'Monogram':false, //If monogram 
 			'MonogramTemplate':'#theTmplm', //Tempalte id for Monogram UI
 			'MonogramPlace':'#monoplace', // html containter for Monogram
-			'FeatureCallback': function(){
+			'OnFeatureChange': function(){
 				alert($(this).attr("data-tds-key"));
 				
 				console.log(abc);				
 			},
-			'RenderCallback':function(a){
+			'OnRenderImageChange':function(a){
 				console.log(a);
 				//console.log(b);
 			}
-			//OptionCallback
+			
 		});
-
+		
+	});
    </script>
 ```
 
