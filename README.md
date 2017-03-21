@@ -82,8 +82,9 @@ iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archiv
 | AutoAlignment                                  | Auto Alignment is the option for Front View and Back View.Boolean values "true" or "false" is used to change the view.<br />For eg. 'AutoAlignment':false, |         |
 
 **Note:**     
-*: Required.  
-*<sup><sup>n</sup></sup>: All Properties marked as *<sup><sup>n</sup></sup> Required.
+*: Required.<br/>
+*<sup><sup>1</sup></sup>: Properties marked as *<sup><sup>1</sup></sup> are dependent on each other.<br/>
+*<sup><sup>2</sup></sup>: Properties marked as *<sup><sup>2</sup></sup> are dependent on each other.<br/>
 	
 ## Data Attributes
 | Data Attribute       | Description                                                    |
@@ -296,7 +297,8 @@ JsRender is a light-weight but powerful templating engine.
 ## Define a template	
 From a template declared as markup in a script block:
 
-<code><script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script></code><br/>
+<code><script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script></code>
+<br/>
 But now we are using for textronics tailori, so we will use {{for ...}} tag
 Following object hierarchy is provided to you for creating templates.
 <pre>
