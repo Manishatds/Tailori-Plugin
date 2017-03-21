@@ -2,32 +2,33 @@
 
 # Tailori API 
 
-Textronic design System created an interactive platform for bespoke clothing. Textronics Tailori API is how you can access that data, In fact, almost all the functionality that runs in Tailor I. 
+Textronic design System have created an interactive platform for bespoke clothing. Textronics Tailori API is a plugin that simplifies access to the functionality of textronics services.
 
 # Features
 
 To know more about features of TheGuide, continue reading our documentation and check our available components.
+It provides following features:
 
 * [Element Rendering](#)  
-  It allows you to render Product, options & features   
+  It allows you to render Product, Options & Features.   
 	
 * [Contrast Options](#)  
-  Allow user to apply contrast fabric on product
+  Allows to apply contrast fabric on the product.
   
 * [Monogram](#)  
-  This feature allows you to give Company Branding on Prouduct i.e, Company Name...etc.
+  This feature allows to give Company Branding on Prouduct i.e, Company Name, Logo, etc.
   
 * [Auto Specific view](#)  
-  Zoom on Specific Part of Product i.e., Shirt Collar, Sleeves...etc
+  Provides Zoomed View of Specific Part of a Product i.e., Shirt Collar, Sleeves, etc.
   
 * [Auto Alignment Change](#)  
-  To View Back and Front Details
+  To View Back and Front Details.
   
 * [Summary](#)  
-  Your customised product and its details	
+  Provides Summary of your customised product and its details.	
 
 * [Save and load favourite look](#)  
-  Allow user to Custom product look
+  Allow user to Save and custom product look.
 
   [View online Demo](https://sagar-tds.github.io/Tailori-Plugin)
 
@@ -37,9 +38,9 @@ ________________________________________________________________________________
 
 i)  jquery.js   [download](https://code.jquery.com)
 
-i)  jsrender.js   [download](https://www.jsviews.com/download/jsrender.min.js) 
+ii)  jsrender.js   [download](https://www.jsviews.com/download/jsrender.min.js) 
 
-ii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive/master.zip) 
+iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archive/master.zip) 
 
 
 # Templates
