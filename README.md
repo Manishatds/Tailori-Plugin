@@ -282,7 +282,7 @@ function GetProduct(){
 			//OptionCallback
 		});
 
-      
+   </script>
 ```
 
 ### Product  
