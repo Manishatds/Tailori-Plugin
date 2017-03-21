@@ -301,9 +301,7 @@ Here's a first example of the power and simplicity of JsRender templates:
 	    "name":
 	    "Imagesource":
 	   
- <br/>
-## Define a template
-<br/>	
+## Define a template	
 From a template declared as markup in a script block:
 
 <script id="myTemplate" type="text/x-jsrender">Name: {{:name}}</script><br/>
