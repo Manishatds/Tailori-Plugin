@@ -178,9 +178,9 @@ if you want texture of contrast of apparel call method without passing parameter
 ### `SpecificRender()`
 To specifically render an image, use these three parameters accordingly for desired view of the part 
 
-1. **detail id**   -     To show specific view of any product detail.
-2. **true**        -	  To show last selected specific view. 
-3. **false**       -	  To show normal view i.e., model or full view.
+1.  **detail id**   -     To show specific view of any product detail.
+2.  **true**        -	  To show last selected specific view. 
+3.  **false**       -	  To show normal view i.e., model or full view.
 
 ```js
 obj.SpecificRender(true);
