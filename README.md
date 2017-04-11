@@ -97,7 +97,8 @@ iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archiv
 ## Callbacks
 | Callback             | Description                                                    
 | ---------------------|:--------------------------------------------------------------|
-| OnProductChange      | This callback fires when user clicks on Product i.e. Coller, Cuff, Sleeves, etc and this callback has one parameter i.e id of Product |
+| OnProductChange      | This callback fires when user clicks on Product i.e. Shirt, Suit, etc. and this callback has one parameter i.e id of Product |
+| OnProductDetailChange| This callback fires when user clicks on Product Details i.e. Coller, Cuff, Sleeves, etc and this callback has one parameter i.e id of Product Detail |
 | OnOptionChange       | This callback fires when user clicks on ProductOptions i.e. High Coller, Low Coller, etc and this callback has one parameter i.e id of ProductOption  |
 | OnFeatureChange      | This callback fires when user clicks on ProductOptions Feature i.e. Half Sleeve, Full Sleeve etc and this callback has one parameter i.e id of ProductOptions Feaure |
 | OnContrastChange     | This callback fires when user clicks on Contrast  |
