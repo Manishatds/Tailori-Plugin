@@ -193,7 +193,7 @@ obj.SpecificRender(true);
 To show specific details of a part, pass id as the parameter. This function will give you an array of name and id.
 
 ```js
-obj.SpecificRender(id);
+obj.SpecificDetails();
 ```
 ---------------------------------------------------------------------------
 
