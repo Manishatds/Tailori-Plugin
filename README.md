@@ -175,8 +175,16 @@ if you want texture of contrast of apparel call method without passing parameter
 ##### *Note: ContrastTexture applies texture only on last selected contrast*
 ------------------------------------------------
 
+### `SpecificDetails()`
+To show specific details of a part, pass id as the parameter. This function will give you an array of name and id.
+
+```js
+obj.SpecificDetails();
+```
+---------------------------------------------------------------------------
+
 ### `SpecificRender()`
-To specifically render an image, use these three parameters accordingly for desired view of the part 
+To specifically render an image, pass any one parameters from the three given below for desired view of the part: 
 
 <ul>
 <li>detail id   -     To show specific view of any product detail.</li>
@@ -186,14 +194,6 @@ To specifically render an image, use these three parameters accordingly for desi
 
 ```js
 obj.SpecificRender(true);
-```
----------------------------------------------------------------------------
-
-### `SpecificDetails()`
-To show specific details of a part, pass id as the parameter. This function will give you an array of name and id.
-
-```js
-obj.SpecificDetails();
 ```
 ---------------------------------------------------------------------------
 
