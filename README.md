@@ -30,7 +30,7 @@ It provides following features:
 * [Save and load favourite look](#)  
   Allows user to Save and custom product look.
 
-  [View online Demo](http://www.textronic.online/designshirt)
+  [View online Demo](https://sagar-tds.github.io/Tailori-Plugin)
 
 __________________________________________________________________________________________________________________________________
 
