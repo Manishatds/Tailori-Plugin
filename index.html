@@ -37,7 +37,7 @@ obj.Look(look);
 			'Product':'MEN-SHIRT',   //Product i.e men shirt,women shirt, men suit, etc
 			'ProductTemplate':'#theTmpl', //Tempalte id for Product
 			'ImageSource':'#img-div', //Container Id for place inages
-			'ServiceUrl':'https://textronic.online/WEB_API',
+			'ServiceUrl':'https://textronic.online/WEB_API_TDS',
 			'AutoSpecific':true, //Auto specific view after selecting any feature
 			'AutoAlignment':true, //Auto alignment set according to selected element
 			'Monogram':true, //If monogram 
@@ -93,7 +93,7 @@ obj.Look(look);
 		
 		//obj._set();
 		$.getJSON({
-				url: "https://textronic.online/WEB_API/v1/Swatches",				
+				url: "https://textronic.online/WEB_API_TDS/v1/Swatches",				
 				success: function (data) {				
 				$("#fabrics").empty();
 				//console.log(data);
