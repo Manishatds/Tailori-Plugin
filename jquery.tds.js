@@ -64,7 +64,7 @@
 			ServiceUrl: "http://localhost:57401",
 			AutoSpecific: true,
 			AutoAlignment: true,
-			ImageSize :"",
+			ImageSize :"1000",
 			OnProductChange: "",
 			OnProductDetailChange: "",
 			OnOptionChange: "",
