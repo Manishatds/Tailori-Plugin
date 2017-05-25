@@ -245,11 +245,14 @@ obj.Look(look);
 										</div>
 										<div class="control-group">
 											<label for="monogram-placement" class="control-label">Monogram Placement</label> 
-											<select class="form-control" id="monogram-placement">											
-											{{for MonogramPlacement}}                            					                     
-												<option id="{{:Id}}">{{:Name}}</option>
-											{{/for}}																					
-											</select>
+						
+											<ul class="the-icons clearfix" id="monogram-font">
+											
+											{{for MonogramPlacement}}                            
+											<li id="{{:Id}}"><img class="img-polaroid" src="{{:ImageSource}}">{{:Name}}</li>
+											
+											{{/for}}																															
+											</ul>
 										</div>
 										
 										<div class="control-group">
