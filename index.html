@@ -30,29 +30,29 @@ obj.Look(look);
 	$(document).ready(function () {
 		//alert("hi")
 
-		
-		
 		 obj = $("#div-1").tailori(
 		{
 			'Product':'MEN-SHIRT',   //Product i.e men shirt,women shirt, men suit, etc
 			'ProductTemplate':'#theTmpl', //Tempalte id for Product
 			'ImageSource':'#img-div', //Container Id for place inages
-			'ServiceUrl':'https://textronic.online/WEB_API_TDS',
+			'ServiceUrl':'http://textronic.online/WEB_API_TDS',
 			'AutoSpecific':true, //Auto specific view after selecting any feature
 			'AutoAlignment':true, //Auto alignment set according to selected element
 			'Monogram':true, //If monogram 
 			'MonogramTemplate':'#theTmplm', //Tempalte id for Monogram UI
 			'MonogramPlace':'#monoplace', // html containter for Monogram
-			'FeatureCallback': function(){
-				//alert($(this).attr("data-tds-key"));
-				
-			//	console.log(abc);
-				
+			'OnProductChange': function(){			
+				$("#sec").empty();
+				var data= obj.SpecificDetails();
+				for(var i in data ){
+						$("#sec").append('<tr id="'+data[i].Id+'" ><td><span class="glyphicon glyphicon-chevron-right"></span><a href="#">'+data[i].Name+'</a></td></tr>');
+					}					
+					$("#sec tr").click(function(){				
+						obj.SpecificRender(this.id);			
+					});
 			},
-			'RenderCallback':function(a){
-				console.log(a);
-				//console.log(b);
-			}
+			'OnRenderImageChange':function(a){			
+			}						
 			//OptionCallback
 		});
 
@@ -72,17 +72,6 @@ obj.Look(look);
 		//data-tds-alignment =<"next"/"previous"/ alignment Name >
 		//IsOptionVisible
 
-
-
-
-
-
-
-
-
-
-		
-		
 		//obj.Texture("red");	
 		//obj.tailori("SetFabric","ABC");//alert("bye")
 		//
@@ -93,7 +82,7 @@ obj.Look(look);
 		
 		//obj._set();
 		$.getJSON({
-				url: "https://textronic.online/WEB_API_TDS/v1/Swatches",				
+				url: "http://textronic.online/WEB_API_TDS/v1/Swatches",				
 				success: function (data) {				
 				$("#fabrics").empty();
 				//console.log(data);
@@ -126,6 +115,7 @@ obj.Look(look);
 
  </script>
 <script id="theTmpl2" type="text/x-jsrender">
+
 <ul>
 	{{for Product}}
       <li ><img style="max-width:30px;" src="{{:ImageSource}}">{{:Name}} is  <b>{{:Id}} </b></li>
@@ -186,10 +176,7 @@ obj.Look(look);
 										<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
 									</td>
 								</tr>
-							{{/for}}
-							
-							
-							
+							{{/for}}							
 						{{/for}}
 						{{for Contrasts}}		
 								<tr id="{{:Id}}">
@@ -249,7 +236,7 @@ obj.Look(look);
 							<div class="panel-body">
 								<div class="form-group" id="Monogram-feature-types">
 									<div aria-multiselectable="true" role="tablist" id="Div1" class="panel-group">
-										<div id="monogram-preview-img">
+										<div id="monogram-preview-img" style="display: none;">
 											<img id="monogram-preview" src="preview.png" data-tds-moption="preview" alt="" class="img-rounded" style="width: 100%">
 										</div>
 										<div class="control-group">
@@ -270,7 +257,7 @@ obj.Look(look);
 											<ul class="the-icons clearfix" id="monogram-font">
 											
 											{{for MonogramFont}}                            
-											<li id="{{:Id}}"><img class="img-polaroid" src="image/ProductImages/129b90f7-fac2-44f2-a8b5-707c263faa75.jpg">{{:Name}}</li>
+											<li id="{{:Id}}"><img class="img-polaroid" src="{{:ImageSource}}">{{:Name}}</li>
 											
 											{{/for}}																															
 											</ul>
@@ -281,7 +268,7 @@ obj.Look(look);
 												Color</label>
 											<ul class="the-icons clearfix" id="monogram-color">
 											{{for MonogramColor}}                            
-											<li id="{{:Id}}"><img class="img-polaroid" src="image/ProductImages/129b90f7-fac2-44f2-a8b5-707c263faa75.jpg">{{:Name}}</li>											
+											<li id="{{:Id}}"><img class="img-polaroid" src="{{:ImageSource}}">{{:Name}}</li>											
 											{{/for}}																															
 											</ul>
 										</div>
@@ -302,8 +289,8 @@ obj.Look(look);
 				<a data-tds-alignment="previous" href="#"><span class="glyphicon glyphicon-chevron-left"></span>Previous</a> | 
 	<a data-tds-alignment="face" href="#">Face</a>  |
 	<a data-tds-alignment="back" href="#">Back</a>  |  	
-	<a data-tds-alignment="faceopen" href="#">Face Open</a>  |
-	<a data-tds-alignment="backopen" href="#">Back Open</a>  |  
+	<a data-tds-alignment="face open" href="#">Face Open</a>  |
+	<a data-tds-alignment="back open" href="#">Back Open</a>  |  
 	
 	<a data-tds-alignment="next" href="#">Next <span class="glyphicon glyphicon-chevron-right"></span> </a>
 					<button type="button" onclick="GetSummary()" class="btn btn-default"><span class="glyphicon glyphicon-list-alt">Summary</button>
@@ -322,6 +309,7 @@ obj.Look(look);
 			<div class="col-sm-2 col-md-2"> 
 				<table class="table" style="height: 300px; display: block; overflow: auto;"><tbody id="fabrics"></tbody></table>				
 				<table class="table"  style="height: 300px; display: block; overflow: auto;"><tbody id="fabrics1"></tbody></table>
+				<table class="table"  style="height: 300px; display: block; overflow: auto;"><tbody id="sec"></tbody></table>
 			</div>
 			<div class="col-sm-3 col-md-3" id="monoplace" >
 				
@@ -638,40 +626,3 @@ obj.Look(look);
 }
 
  </Style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
