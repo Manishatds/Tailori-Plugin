@@ -80,6 +80,8 @@ iii) jquery.tds.js [download](https://github.com/Sagar-TDS/Tailori-Plugin/archiv
 | MonogramTemplate                               | Container for placing the Monogram Options.<br />In MonogramTemplate we can add: font, text, and placing area to show monogram,etc.|         |
 | AutoSpecific                                   | If *true* Zoomed view of specific part is automatically rendered *else* not.|         |
 | AutoAlignment                                  | Auto Alignment is the option for Front View and Back View.Boolean values "true" or "false" is used to change the view.<br />For eg. 'AutoAlignment':false, |         |
+| ImageSize                                | ImageSize is the option for specifying Image size. By default the height= 1000px, and width= Auto. To change image size user can manually change it as per requirement<br />For eg. 'ImageSize':1000, |         |
+
 
 **Note:**     
 *: Required.<br/>
