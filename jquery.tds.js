@@ -64,7 +64,7 @@
 			ServiceUrl: "http://localhost:57401",
 			AutoSpecific: true,
 			AutoAlignment: true,
-			ImageSize :"1000",
+			ImageSize :"",
 			OnProductChange: "",
 			OnProductDetailChange: "",
 			OnOptionChange: "",
@@ -525,7 +525,9 @@
 										var h = $(imgSrc).css("height");
 										h = h.replace("px", "");
 										
-										if(this.ImageSize!="")
+										if(h == "1")
+											h = "1000";
+										if(this.Option('ImageSize') != "" )
 											h= this.Option('ImageSize');
 										
 										$(imgSrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
