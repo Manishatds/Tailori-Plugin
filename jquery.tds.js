@@ -457,10 +457,19 @@
 				}
 				if (this._ReverseLinks[key] !== undefined) {
 					for (var index in this._ReverseLinks[key]) {
-						this._Url += "part=" + this._RenderObject[this._ReverseLinks[key][index]].Id + "&pair=" + this._RenderObject[key].Id;
+						this._Url += "part=" + this._RenderObject[this._ReverseLinks[key][index]].Id ;
 						if (this._RenderObject[this._ReverseLinks[key][index]].Swatch != "")
-							this._Url += "&swatch=" + this._RenderObject[this._ReverseLinks[key][index]].Swatch;
-						this._Url += "/";
+							this._Url += "&pair=" + this._RenderObject[key].Id + "&swatch=" + this._RenderObject[this._ReverseLinks[key][index]].Swatch + "/";
+						if (this._RenderObject[this._ReverseLinks[key][index]].Contrast.length > 0){
+							var url = "";
+							var ro = "&pair=" + this._RenderObject[key].Id;
+							$.each(this._RenderObject[this._ReverseLinks[key][index]].Contrast,function(index2,value2){
+								url += ro + "&swatch=" + value2.Swatch + "&grouporderno="+index2 + "/";
+							});
+							this._Url += url;
+						}else{
+							this._Url += "&pair=" + this._RenderObject[key].Id + "/";
+						}
 					}
 				}
 
@@ -525,7 +534,7 @@
 										var h = $(imgSrc).css("height");
 										h = h.replace("px", "");
 										
-										if(h == "1")
+										if(h == "1" || h == "0")
 											h = "1000";
 										if(this.Option('ImageSize') != "" )
 											h= this.Option('ImageSize');
