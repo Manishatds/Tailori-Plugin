@@ -10,8 +10,84 @@
 var obj =null;
 
 var look = null;
+function summary(){
+	$("#summary-model").html();
+	var canvas = document.getElementById('summary-image');
+	var context = canvas.getContext('2d');
+	var i = 0;
+	var height = 0;
+	var width = 0;
+
+	var img = new Image();
+	var src = $($("#img-div").find("img")[1]).attr("src");
+	if (src != undefined) {
+		img.src = src;
+		height = img.height;
+		width = img.width;
+	}
+
+	$("#img-div").find("img").each(function() {
+		src = $(this).attr("src");
+		if (src != "") {
+			img = new Image();
+			img.src = src;
+			if (i == 0) {
+				if (height == 0) {
+
+					canvas.width = img.width;
+					canvas.height = img.height;
+					if (img.width == 1)
+						i = -1;
+				} else {
+					canvas.width = width;
+					canvas.height = height;
+				}
+			}
+			//alert(img);
+			context.drawImage(img, 0, 0, width, height);
+		}
+
+		i++;
+	});
+	$("#summaryModel").modal({
+		keyboard : true,
+		backdrop : "static"
+	});
+
+	$("#summaryModel .modal-dialog").css("width", "-moz-fit-content");
+}
 function GetSummary(){
-	console.log( obj.Summary());
+	var txt="<table class='table table-striped' style='width:110%'>";
+
+				var result = obj.Summary();
+				 console.log(result);
+				 //alert(result[0].length);
+				 txt+="<tr><td colspan=4><center><b>Product Summary</b></center></td></tr>";
+				 for(i=0;i<result.ProductSummary.length;i++)
+				 {
+					 	txt+="<tr><td>"+result.ProductSummary[i].Product+"</td><td>"+result.ProductSummary[i].Option+"</td><td>"
+						+result.ProductSummary[i].Feature+"</td></tr>";
+				 }
+				 if(result.ContrastSummary.length>0){
+					 txt+="<tr><td colspan=4><center><b>Contrast Summary</b></center></td></tr>";
+					 for(i=0;i<result.ContrastSummary.length;i++)
+					 {
+						 	txt+="<tr><td>"+result.ContrastSummary[i].Product+"</td><td>"+result.ContrastSummary[i].Contrast+"</td><td>"
+							+result.ContrastSummary[i].Fabric+"</td></tr>";
+					 }
+			 	 }
+				 if(result.FabricSummary.length>0){
+					 txt+="<tr><td colspan=4><center><b>Fabric Summary</b></center></td></tr>";
+					 for(i=0;i<result.FabricSummary.length;i++)
+					 {
+						 	txt+="<tr><td>"+result.FabricSummary[i].Area+"</td><td>"+result.FabricSummary[i].Name+"</td><td>"
+							+result.FabricSummary[i].Price+"</td></tr>";
+					 }
+			   }
+				 txt+="</table>"
+				 $("#sum").empty();
+				  $("#sum").append(txt);
+				 summary();
 }
 
 function GetProduct(){
@@ -32,7 +108,7 @@ obj.Look(look);
 
 		 obj = $("#div-1").tailori(
 		{
-			'Product':'MEN-SHIRT',   //Product i.e men shirt,women shirt, men suit, etc
+			'Product':'MEN-shirt',   //Product i.e men shirt,women shirt, men suit, etc
 			'ProductTemplate':'#theTmpl', //Tempalte id for Product
 			'ImageSource':'#img-div', //Container Id for place inages
 			'ServiceUrl':'http://textronic.online/WEB_API_TDS',
@@ -41,17 +117,34 @@ obj.Look(look);
 			'Monogram':true, //If monogram 
 			'MonogramTemplate':'#theTmplm', //Tempalte id for Monogram UI
 			'MonogramPlace':'#monoplace', // html containter for Monogram
+			
 			'OnProductChange': function(){			
 				$("#sec").empty();
 				var data= obj.SpecificDetails();
 				for(var i in data ){
-						$("#sec").append('<tr id="'+data[i].Id+'" ><td><span class="glyphicon glyphicon-chevron-right"></span><a href="#">'+data[i].Name+'</a></td></tr>');
-					}					
-					$("#sec tr").click(function(){				
-						obj.SpecificRender(this.id);			
+						$("#sec").append('<li id="'+data[i].Id+'" ><img src="http://textronic.online/WEB_API_TDS/v1/ProductImage?'+data[i].Id+'" width=40 height=40><p>'+data[i].Name+'</p></li>');
+					}	
+					$("#sec").append('<li class="btn btn-primary" id="zoomout" ><a href="#" style="color:#fff">ZOOM OUT</a></li>');
+					$("#sec li").click(function(){	
+						if(this.id == "zoomout")
+							obj.SpecificRender(false);
+						else
+							obj.SpecificRender(this.id);			
 					});
 			},
-			'OnRenderImageChange':function(a){			
+			'OnRenderImageChange':function(a){	
+				$("#monogram-placement li").click(function(){
+					$(this).siblings().removeClass("monoselectd");
+					$(this).addClass("monoselectd");
+				});
+				$("#monogram-font li").click(function(){
+					$(this).siblings().removeClass("monoselectd");
+					$(this).addClass("monoselectd");
+				});
+				$("#monogram-color li").click(function(){
+					$(this).siblings().removeClass("monoselectd-color");
+					$(this).addClass("monoselectd-color");
+				});
 			}						
 			//OptionCallback
 		});
@@ -87,8 +180,8 @@ obj.Look(look);
 				$("#fabrics").empty();
 				//console.log(data);
 					for (var url in data) {
-					$("#fabrics").append('<tr id="'+data[url]+'" ><td><span class="glyphicon glyphicon-chevron-right"></span><a href="#">'+url+'</a></td></tr>');
-					$("#fabrics1").append('<tr id="'+data[url]+'" ><td><span class="glyphicon glyphicon-chevron-right"></span><a href="#">'+url+'</a></td></tr>');					
+					$("#fabrics").append('<tr id="'+data[url]+'" ><td><img style="margin-right:10px" src="http://textronic.online/WEB_API_TDS/v1/SwatchImage?'+data[url]+'" width=40 height=40><a href="#">'+url+'</a></td></tr>');
+					$("#fabrics1").append('<tr id="'+data[url]+'" ><td><img style="margin-right:10px" src="http://textronic.online/WEB_API_TDS/v1/SwatchImage?'+data[url]+'" width=40 height=40><a href="#">'+url+'</a></td></tr>');					
 					}
 					$("#fabrics tr").click(function(){
 				//		alert(this.id);
@@ -109,7 +202,26 @@ obj.Look(look);
 				},
 				fail: function () {}
 			});
-
+		
+		$.getJSON({
+				url: "http://textronic.online/WEB_API_TDS/v1/Product",				
+				success: function (data) {		
+					var txt = "";
+					$.each(data,function(index,value){
+						txt += "<li><a href='#' class='btn btn-default'>"+index+"</a></li>";
+					});
+					$("#product").html(txt);
+					
+					$("#product li").click(function(){
+					var pr = $(this).find("a").text();
+					
+					if(pr.includes("_"))
+						pr = pr.replace("_","-");
+						obj.Product(pr);
+					});
+				},
+				fail: function () {}
+			});
 			
 	});
 
@@ -168,20 +280,30 @@ obj.Look(look);
 			<div id="collapse{{:Id}}" class="panel-collapse collapse">
 				<div class="panel-body">
 					<table class="table">
+					<tr id="{{:Id}}">
+							<td>
+								<h5>Features :</h5>
+							</td>
+						</tr>
 						{{for Options}}
 						
 							{{for Features}}		
 								<tr id="{{:Id}}">
 									<td>
-										<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
+										<img style="margin-right:10px" src="{{:ImageSource}}" width=40 height=40><a href="#">{{:Name}}</a>
 									</td>
 								</tr>
 							{{/for}}							
 						{{/for}}
+						<tr id="{{:Id}}">
+							<td>
+								<h5>Contrast :</h5>
+							</td>
+						</tr>
 						{{for Contrasts}}		
 								<tr id="{{:Id}}">
 									<td>
-										<span class="glyphicon glyphicon-chevron-right"></span><a href="#">{{:Name}}</a>
+										<img style="margin-right:10px" src="{{:ImageSource}}" width=40 height=40><a href="#">{{:Name}}</a>
 									</td>
 								</tr>
 							{{/for}}
@@ -226,14 +348,14 @@ obj.Look(look);
 <script id="theTmplm" type="text/x-jsrender">
 
 
-<div class="panel panel-default ">
+<div class="panel panel-primary ">
 						<div class="panel-heading" role="tab" id="headingMonoConfig">
 							<h4 class="panel-title">
 								<a data-toggle="collapse" data-parent="#accordion1" href="#collapseMonoConfig" aria-expanded="true" aria-controls="collapseMonoConfig" class="">Monogram Configuration</a>
 							</h4>
 						</div>
 						<div id="collapseMonoConfig" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingMonoConfig" aria-expanded="true" style="">
-							<div class="panel-body">
+							<div class="panel-body" style="padding:10px">
 								<div class="form-group" id="Monogram-feature-types">
 									<div aria-multiselectable="true" role="tablist" id="Div1" class="panel-group">
 										<div id="monogram-preview-img" style="display: none;">
@@ -245,11 +367,11 @@ obj.Look(look);
 										</div>
 										<div class="control-group">
 											<label for="monogram-placement" class="control-label">Monogram Placement</label> 
-						
-											<ul class="the-icons clearfix" id="monogram-font">
+										
+											<ul  class="monogram" id="monogram-placement">
 											
 											{{for MonogramPlacement}}                            
-											<li id="{{:Id}}"><img class="img-polaroid" src="{{:ImageSource}}">{{:Name}}</li>
+											<li id="{{:Id}}">{{:Name}}</li>
 											
 											{{/for}}																															
 											</ul>
@@ -257,10 +379,10 @@ obj.Look(look);
 										
 										<div class="control-group">
 											<label for="monogram-font" class="control-label"> Monogram Font</label>
-											<ul class="the-icons clearfix" id="monogram-font">
+											<ul class="monogram" id="monogram-font">
 											
 											{{for MonogramFont}}                            
-											<li id="{{:Id}}"><img class="img-polaroid" src="{{:ImageSource}}">{{:Name}}</li>
+											<li id="{{:Id}}">{{:Name}}</li>
 											
 											{{/for}}																															
 											</ul>
@@ -269,9 +391,9 @@ obj.Look(look);
 										<div class="control-group">
 											<label for="monogram-color" class="control-label"> Monogram
 												Color</label>
-											<ul class="the-icons clearfix" id="monogram-color">
+											<ul class="" id="monogram-color">
 											{{for MonogramColor}}                            
-											<li id="{{:Id}}"><img class="img-polaroid" src="{{:ImageSource}}">{{:Name}}</li>											
+											<li id="{{:Id}}"><img class="img-polaroid" src="{{:ImageSource}}"><p>{{:Name}}</p></li>											
 											{{/for}}																															
 											</ul>
 										</div>
@@ -286,7 +408,6 @@ obj.Look(look);
 	<body> 
 	
 		<div class="container-fluid">
-		
 			<div class="row" >
 				<div  class="col-sm-12 col-md-12" > 
 				<a data-tds-alignment="previous" href="#"><span class="glyphicon glyphicon-chevron-left"></span>Previous</a> | 
@@ -307,18 +428,61 @@ obj.Look(look);
 				
 				<button type="button" onclick="SetLook()" class="btn btn-default">Set Look</button>
 				</div>
+			<div class="col-sm-12"><hr></hr></div>
 			<div  class="row">
-			<div  class="col-sm-2 col-md-2" id = "div-1"></div>
-			<div class="col-sm-2 col-md-2"> 
-				<table class="table" style="height: 300px; display: block; overflow: auto;"><tbody id="fabrics"></tbody></table>				
-				<table class="table"  style="height: 300px; display: block; overflow: auto;"><tbody id="fabrics1"></tbody></table>
-				<table class="table"  style="height: 300px; display: block; overflow: auto;"><tbody id="sec"></tbody></table>
+			<div class="col-sm-2 col-md-2">
+				<div class="panel panel-primary" >
+					<div class="panel-heading" style="margin-bottom:10px">Product</div>
+					<div class="panel-body" style="padding:10px;">
+						<ul id="product"></ul>
+					</div>
+				</div>
+				<div class="panel panel-primary" >
+					<div class="panel-heading" style="margin-bottom:10px">Specific Views</div>
+					<div class="panel-body" style="padding:10px;">
+						<ul id="sec"></ul>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-3 col-md-3" id="monoplace" >
+			
+			<div class="col-sm-2 col-md-2">
+				<div class="panel panel-primary" >
+					<div class="panel-heading" style="margin-bottom:10px">Product Details</div>
+					<div class="panel-body" style="padding:10px;">
+						<div  class="" id = "div-1"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-2 col-md-2">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Fabric (For Full Draping)</div>
+					<div class="panel-body">
+						<table class="table" style="height: 300px; display: block; overflow: auto;">
+							<tbody id="fabrics">
+							</tbody>
+						</table>
+					</div>
+				</div>
+								
+				<div class="panel panel-primary">
+					<div class="panel-heading">Contrast Fabric *( Only For Contrast )</div>
+					<div class="panel-body">
+						<table class="table" style="height: 300px; display: block; overflow: auto;">
+							<tbody id="fabrics1">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-2 col-md-2" id="monoplace" >
 				
 			</div>
 			
-			<div class="col-sm-3 col-md-3" id="img-div"></div>
+			<div class="col-sm-3 col-md-3" >
+			<!-- <div id="loder"></div> -->
+			<div id="img-div"></div>
+			</div>
 		</div>
 		</div>
 
@@ -339,7 +503,36 @@ obj.Look(look);
 	</div>
 	
 		
-	
+	<div id="summaryModel" class="modal fade" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div style="width:-webkit-fit-content;" class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal"
+                                          aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                              </button>
+                              <h4 class="modal-title" id="myModalLabel">Product Summary</h4>
+                          </div>
+                          <div class="modal-body" id="summary-model">
+                              <div class="row">
+                                  <div id="sum" class="col-sm-6">
+                                      <table class="table" style="width:110%">
+                                      </table>
+                                  </div>
+                                  <div style="overflow:hidden" class="col-sm-6">
+                                      <canvas id="summary-image" ></canvas>
+                                  </div>
+
+                                </div>
+                                <div class="modal-footer"><center>
+                                    <button type="button" style="width:auto" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                  </center>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
 	
 	</body>
 </html>
@@ -349,6 +542,8 @@ obj.Look(look);
  #img-div{
 //	 display:;
 	// position:absolute;
+	//height : 350px;
+	
  }
  #img-div img{
 	 position:absolute;
@@ -627,5 +822,63 @@ obj.Look(look);
     color: #fff; /* active text color */
     background-color: #a94442; /* active bg color */
 }
-
+.monogram,#monogram-color,#product,#sec{
+list-style-type: none;
+padding: 0px;
+}
+.monogram li{
+	border: 1px solid #000;
+	text-align: center;
+	margin-bottom: 10px;
+	transition: all 0.5s ease 0s;
+}
+.monogram li:hover{
+	background-color:grey;
+	color:#fff;
+	cursor:pointer;
+}
+.monoselectd{
+	background-color:grey;
+	color:#fff;
+	cursor:pointer;
+}
+#monogram-color li{
+margin-right:20px;
+margin-bottom:10px;
+float:left;
+padding:5px;
+border:1px solid rgba(0,0,0,0.2);
+border-radius:5px;
+transition: all 0.5s ease 0s;
+}
+#monogram-color li:hover{
+	cursor:pointer;
+	border:1px solid rgba(0,0,0,0.7);
+}
+.monoselectd-color{
+	border:1px solid rgba(0,0,0,0.7) !important;
+}
+#summary-image {
+    margin: auto;
+    width: 400px !important;
+}
+#loder{
+background:url(ajax-loader.gif);
+background-repeat:no-repeat;
+}
+#product li{
+	margin-bottom:10px;
+}
+#sec li{
+	margin-right:20px;
+	margin-bottom:10px;
+	float:left;
+	padding:5px;
+	border:1px solid rgba(0,0,0,0.2);
+	transition: all 0.5s ease 0s;
+}
+#sec li:hover{
+	border:1px solid #000;
+	cursor:pointer;
+}
  </Style>
