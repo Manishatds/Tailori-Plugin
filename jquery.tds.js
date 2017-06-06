@@ -103,7 +103,7 @@
 						});
 					this.$element.html(htmlOutput);
 
-					for (var key in this._Alignments) {
+					for (var key=0; key < this._Alignments.length; key++) {
 						if (this._Alignments[key].toLowerCase() == "face")
 							this._CurrentAlignmentIndex = key;
 					}
