@@ -46,6 +46,7 @@
 		_SpecificViewOf: "",
 		_IsSpecific: false,
 		_ProductData: [],
+		_AddOnData : [],
 		_LibConfig: new Object,
 		_IsAlignmentClick: false,
 		_SelectedAlignment: "face",
@@ -60,11 +61,14 @@
 			FeatureTemplate: "",
 			FeaturesPlace: "",
 			MonogramTemplate: "",
+			IsAddOnOption : false,
+			AddOnTemplate : "",
+			AddOnsPlace : "",
 			Swatch: "",
 			ServiceUrl: "http://localhost:57401",
 			AutoSpecific: true,
 			AutoAlignment: true,
-			ImageSize :"",
+			ImageSize :"1000",
 			OnProductChange: "",
 			OnProductDetailChange: "",
 			OnOptionChange: "",
@@ -85,6 +89,7 @@
 			var templateId = this.Option("ProductTemplate");
 			if (templateId == "")
 				return;
+			
 			$.getJSON({
 				url: this.Option("ServiceUrl") + "/api/products/" + type,
 				context: this,
@@ -97,13 +102,52 @@
 					that._ProductData = data.Product;
 					that._LibConfig = data.LibraryConfig;
 
-					var template = $.templates(templateId);
-					var htmlOutput = template.render({
-							"Product": that._ProductData
+					/* changes by Rohit */
+					if(this.Option("AddOnOption")){
+						var addOnTemplateId = this.Option("AddOnOptionTemplate");
+						if (addOnTemplateId == "")
+							return;
+						var i=0;
+						
+						$.each(that._ProductData,function(index,value){
+							var p = that._ProductData[index].IsAddOn;
+							if(that._ProductData[index].IsAddOn){
+								that._AddOnData[i] = that._ProductData[index];
+								i++;
+							}
 						});
-					this.$element.html(htmlOutput);
+						
+						var template = $.templates(templateId);
+						var htmlOutput = template.render({
+								"Product": that._ProductData
+							});
+						this.$element.html(htmlOutput);
+						
+						var addOnUiId = that.Option("AddOnOptionsPlace");
+						var template2 = $.templates(addOnTemplateId);
+						var htmlOutput2 = template2.render({
+								"AddOn": that._AddOnData
+							});
+						$(addOnUiId).html(htmlOutput2);
+						
+						for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+							if (this._ProductData[dataIndex].IsAddOn == true) {
+								this.$element.find("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
+								this.$element.find("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
+							}
+						}
+						
+					}else{
+						var template = $.templates(templateId);
+						var htmlOutput = template.render({
+								"Product": that._ProductData
+							});
+						this.$element.html(htmlOutput);
+					}
+						
+					/* End */
 
-					for (var key=0; key < this._Alignments.length; key++) {
+					for (var key in this._Alignments) {
 						if (this._Alignments[key].toLowerCase() == "face")
 							this._CurrentAlignmentIndex = key;
 					}
@@ -459,7 +503,8 @@
 					for (var index in this._ReverseLinks[key]) {
 						this._Url += "part=" + this._RenderObject[this._ReverseLinks[key][index]].Id ;
 						if (this._RenderObject[this._ReverseLinks[key][index]].Swatch != "")
-							this._Url += "&pair=" + this._RenderObject[key].Id + "&swatch=" + this._RenderObject[this._ReverseLinks[key][index]].Swatch + "/";
+							this._Url += "&pair=" + this._RenderObject[key].Id + "&swatch=" + this._RenderObject[this._ReverseLinks[key][index]].Swatch;
+						/* changes by Rohit */
 						if (this._RenderObject[this._ReverseLinks[key][index]].Contrast.length > 0){
 							var url = "";
 							var ro = "&pair=" + this._RenderObject[key].Id;
@@ -470,6 +515,7 @@
 						}else{
 							this._Url += "&pair=" + this._RenderObject[key].Id + "/";
 						}
+						/* End */
 					}
 				}
 
@@ -646,6 +692,7 @@
 			this._MonogramColor = "";
 			this._MonogramFont = "";
 			this._MonogramText = "";
+			this._AddOnData = [];
 			this._SpecificDisplay = new Object();
 			this._SpecificLink = new Object();
 			this._SpecificViewOf = "";
