@@ -134,8 +134,10 @@ obj.Look(look);
 				
 				if(productName.toLowerCase().includes("shirt"))
 				{
+					$("#specific").show();
 					$("#monoplace").show();
 				}else{
+					$("#specific").hide();
 					$("#monoplace").hide();
 				}
 			},
@@ -444,7 +446,7 @@ obj.Look(look);
 						<ul id="product"></ul>
 					</div>
 				</div>
-				<div class="panel panel-primary" >
+				<div id="specific" class="panel panel-primary" >
 					<div class="panel-heading" style="margin-bottom:10px">Specific Views</div>
 					<div class="panel-body" style="padding:10px;">
 						<ul id="sec"></ul>
