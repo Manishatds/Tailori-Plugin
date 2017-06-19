@@ -173,27 +173,39 @@
 						$("body").on("click", "[data-tds-mplace]", function () {
 							that._MonogramPlacement = $(this).data("tds-mplace");
 							if (that._MonogramPlacement !== "" && that._MonogramFont !== "" && that._MonogramColor !== "" && that._MonogramText !== "")
+							{
+								that._IsSpecific = false;
 								that._createUrl();
+							}
 						});
 
 						$("body").on("click", "[data-tds-mfont]", function () {
 
 							that._MonogramFont = $(this).data("tds-mfont");
 							if (that._MonogramPlacement !== "" && that._MonogramFont !== "" && that._MonogramColor !== "" && that._MonogramText !== "")
+							{
+								that._IsSpecific = false;
 								that._createUrl();
+							}
 						});
 
 						$("body").on("click", "[data-tds-mcolor]", function () {
 
 							that._MonogramColor = $(this).data("tds-mcolor");
 							if (that._MonogramPlacement !== "" && that._MonogramFont !== "" && that._MonogramColor !== "" && that._MonogramText !== "")
+							{
+								that._IsSpecific = false;
 								that._createUrl();
+							}
 						});
 
 						$("body").on("change", '[data-tds-moption="text"]', function () {
 							that._MonogramText = $(this).val();
 							if (that._MonogramPlacement !== "" && that._MonogramFont !== "" && that._MonogramColor !== "" && that._MonogramText !== "")
+							{
+								that._IsSpecific = false;
 								that._createUrl();
+							}
 
 						});
 					}
@@ -501,6 +513,8 @@
 				}
 				if (this._ReverseLinks[key] !== undefined) {
 					for (var index in this._ReverseLinks[key]) {
+						if (this._CurrentBlockedDetails.indexOf(this._ReverseLinks[key][index] ) !== -1)
+							continue;
 						this._Url += "part=" + this._RenderObject[this._ReverseLinks[key][index]].Id ;
 						if (this._RenderObject[this._ReverseLinks[key][index]].Swatch != "")
 							this._Url += "&pair=" + this._RenderObject[key].Id + "&swatch=" + this._RenderObject[this._ReverseLinks[key][index]].Swatch;
