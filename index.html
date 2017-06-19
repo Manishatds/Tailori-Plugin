@@ -118,7 +118,7 @@ obj.Look(look);
 			'MonogramTemplate':'#theTmplm', //Tempalte id for Monogram UI
 			'MonogramPlace':'#monoplace', // html containter for Monogram
 			
-			'OnProductChange': function(){			
+			'OnProductChange': function(productName){			
 				$("#sec").empty();
 				var data= obj.SpecificDetails();
 				for(var i in data ){
@@ -131,6 +131,13 @@ obj.Look(look);
 						else
 							obj.SpecificRender(this.id);			
 					});
+				
+				if(productName.toLowerCase().includes("shirt"))
+				{
+					$("#monoplace").show();
+				}else{
+					$("#monoplace").hide();
+				}
 			},
 			'OnRenderImageChange':function(a){	
 				$("#monogram-placement li").click(function(){
