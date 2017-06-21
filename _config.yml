@@ -6,4 +6,4 @@ before_script:
 script:
 - awesome_bot readme.md
 
-theme: jekyll-theme-hacker
+theme: jekyll-theme-cayman
