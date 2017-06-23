@@ -36,7 +36,7 @@ ________________________________________________________________________________
 
 # Dependencies
 
-i)  jquery.js  http://www.textronic.online/tailori/
+i)  jquery.js   [download]
 
 ii)  jsrender.js   [download](https://www.jsviews.com/download/jsrender.min.js) 
 
