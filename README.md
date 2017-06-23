@@ -36,7 +36,7 @@ ________________________________________________________________________________
 
 # Dependencies
 
-i)  jquery.js   [download]
+i)  jquery.js   [download](https://code.jquery.com)
 
 ii)  jsrender.js   [download](https://www.jsviews.com/download/jsrender.min.js) 
 
