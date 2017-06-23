@@ -30,13 +30,13 @@ It provides following features:
 * [Save and load favourite look](#)  
   Allows user to Save and custom product look.
 
-  [View online Demo](https://textronic.online/tds)
+  [View online Demo](http://www.textronic.online/tailori)
 
 __________________________________________________________________________________________________________________________________
 
 # Dependencies
 
-i)  jquery.js   [download](https://code.jquery.com)
+i)  jquery.js  http://www.textronic.online/tailori/
 
 ii)  jsrender.js   [download](https://www.jsviews.com/download/jsrender.min.js) 
 
