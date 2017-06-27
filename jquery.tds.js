@@ -963,6 +963,31 @@
 
 			return null;
 		},
+		CustomizeOptions: function (optionArray) {
+			var selectedOption = [];
+			for(var i=0;i < optionArray.length ; i++ ){
+				for(var dataIndex = 0;dataIndex < this._ProductData.length ; dataIndex++){
+					if(optionArray[i].toLowerCase() ==  this._ProductData[dataIndex].Name.toLowerCase()){
+						selectedOption.push(this._ProductData[dataIndex].Id);
+						$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").addClass("selected");
+						$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").addClass("selected");
+					}		
+				}
+			}
+			console.log(selectedOption);
+			for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+				if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
+							$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
+					$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+					$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+					continue;
+				} 
+				$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
+				$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
+			}
+				
+			return null;
+		},
 
 	};
 
