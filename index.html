@@ -290,12 +290,15 @@ obj.Look(look);
 				<div class="panel-body">
 					<table class="table">
 					<tr id="{{:Id}}">
+							
+						</tr>
+						{{for Options}}
+							<tr>
+								<td><h5><b>Option :{{:Name}}</h5></b></td>
+							</tr>
 							<td>
 								<h5>Features :</h5>
 							</td>
-						</tr>
-						{{for Options}}
-						
 							{{for Features}}		
 								<tr id="{{:Id}}">
 									<td>
@@ -306,7 +309,7 @@ obj.Look(look);
 						{{/for}}
 						<tr id="{{:Id}}">
 							<td>
-								<h5>Contrast :</h5>
+								<h5><b>Contrast :<b></h5>
 							</td>
 						</tr>
 						{{for Contrasts}}		
