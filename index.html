@@ -287,13 +287,13 @@ obj.Look(look);
 				</h4>
 			</div>
 			<div id="collapse{{:Id}}" class="panel-collapse collapse">
-				<div class="panel-body">
+				<div class="panel-body" style="max-height:400px;overflow-x:hidden;overflow-y:auto">
 					<table class="table">
 					<tr id="{{:Id}}">
 							
 						</tr>
 						{{for Options}}
-							<tr>
+							<tr style="background-color:#88b5dd;color:#fff">
 								<td><h5><b>Option :{{:Name}}</h5></b></td>
 							</tr>
 							{{for Features}}		
@@ -304,7 +304,7 @@ obj.Look(look);
 								</tr>
 							{{/for}}							
 						{{/for}}
-						<tr id="{{:Id}}">
+						<tr id="{{:Id}}" style="background-color:#88b5dd;color:#fff">
 							<td>
 								<h5><b>Contrast :<b></h5>
 							</td>
