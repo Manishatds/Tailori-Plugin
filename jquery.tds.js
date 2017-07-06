@@ -512,7 +512,7 @@
 					}
 				}
 				if (this._ReverseLinks[key] !== undefined) {
-					for (var index in this._ReverseLinks[key]) {
+					for (var index=0;index < this._ReverseLinks[key].length;index++) {
 						if (this._CurrentBlockedDetails.indexOf(this._ReverseLinks[key][index] ) !== -1)
 							continue;
 						this._Url += "part=" + this._RenderObject[this._ReverseLinks[key][index]].Id ;
@@ -651,9 +651,9 @@
 				else
 					this._CurrentAlignmentIndex--;
 			} else
-				for (var key in this._Alignments) {
-					if (this._Alignments[key].toLowerCase() == align)
-						this._CurrentAlignmentIndex = key;
+				for (var key=0 ;key < this._Alignments.length;key++) {
+						if (this._Alignments[key].toLowerCase() == "face")
+							this._CurrentAlignmentIndex = key;
 				}
 			this._createUrl();
 		},
@@ -725,7 +725,7 @@
 
 			var falseArray = new Array();
 			var isFound = false;
-			for (var key in this._LibConfig) {
+			for (key=0; key < this._LibConfig.length;key++) {
 				var indexOf = this._LibConfig[key].Options.indexOf(this._SpecificViewOf);
 				if (indexOf > -1) {
 					for (var key1 in this._LibConfig[key].Options) {
@@ -735,7 +735,7 @@
 					this._LibConfig[key].Swatch = id;
 				} else {
 					if (this._LibConfig[key].Name.toLowerCase().indexOf("waist") == -1)
-						for (var key1 in this._LibConfig[key].Options) {
+						for (var key1 = 0;key1 < this._LibConfig[key].Options.length;key1++) {
 							falseArray.push(this._LibConfig[key].Options[key1]);
 						}
 
@@ -923,7 +923,7 @@
 
 		ResetContrast: function () {
 			for (var key in this._RenderObject) {
-				for (var contrastKey in this._RenderObject[key].Contrast) {
+				for (var contrastKey=0;contrastKey < this._RenderObject[key].Contrast.length;contrastKey++) {
 					this._RenderObject[key].Contrast[contrastKey].Swatch = "";
 					this._RenderObject[key].Contrast[contrastKey].Color = "";
 				}
