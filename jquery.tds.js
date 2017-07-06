@@ -147,7 +147,7 @@
 						
 					/* End */
 
-					for (var key in this._Alignments) {
+					for (var key=0 ;key < this._Alignments.length;key++) {
 						if (this._Alignments[key].toLowerCase() == "face")
 							this._CurrentAlignmentIndex = key;
 					}
@@ -848,6 +848,16 @@
 					'MT': this._MonogramText,
 					'AI': this._CurrentAlignmentIndex
 				};
+				
+
+				var url = this.Option("ServiceUrl") + "/v1/img?" + this._Url;
+
+				return {
+					'Data': btoa(JSON.stringify(lookData)),
+					'Url' : url
+				};
+			} 
+			else if(rawRenderData.toLowerCase() === "image"){
 				var image = null;
 				$.ajax({
 					url: this.Option("ServiceUrl") + "/v1/img?" + this._Url,
@@ -859,16 +869,11 @@
 						image = result;
 					}
 				});
-
-				var image = this.Option("ServiceUrl") + "/v1/img?" + this._Url;
-
-				return {
-					'Data': btoa(JSON.stringify(lookData)),
-					Image: image
-				};
-			} else {
+				return image;
+			}
+			else {
 				var lookData = JSON.parse(atob(rawRenderData));
-
+				//var image = this._dataURItoBlob(rawRenderData);
 				this._RenderObject = lookData.RO;
 				this._CurrentBlockedFeatures = lookData.BF;
 				this._CurrentBlockedDetails = lookData.BD;
