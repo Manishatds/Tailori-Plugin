@@ -121,9 +121,9 @@ obj.Look(look);
 			'OnProductChange': function(productName){			
 				$("#sec").empty();
 				var data= obj.SpecificDetails();
-				for(var i in data ){
+				$.each(data,function(i,value){
 						$("#sec").append('<li id="'+data[i].Id+'" ><img src="http://textronic.online/WEB_API_TDS/v1/ProductImage?'+data[i].Id+'" width=40 height=40><p>'+data[i].Name+'</p></li>');
-					}	
+					});	
 					$("#sec").append('<li class="btn btn-primary" id="zoomout" ><a href="#" style="color:#fff">ZOOM OUT</a></li>');
 					$("#sec li").click(function(){	
 						if(this.id == "zoomout")
