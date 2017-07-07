@@ -188,10 +188,10 @@ obj.Look(look);
 				success: function (data) {				
 				$("#fabrics").empty();
 				//console.log(data);
-					for (var url in data) {
+					$.each(data,function(url,value) {
 					$("#fabrics").append('<tr id="'+data[url]+'" ><td><img style="margin-right:10px" src="http://textronic.online/WEB_API_TDS/v1/SwatchImage?'+data[url]+'" width=40 height=40><a href="#">'+url+'</a></td></tr>');
 					$("#fabrics1").append('<tr id="'+data[url]+'" ><td><img style="margin-right:10px" src="http://textronic.online/WEB_API_TDS/v1/SwatchImage?'+data[url]+'" width=40 height=40><a href="#">'+url+'</a></td></tr>');					
-					}
+					});
 					$("#fabrics tr").click(function(){
 				//		alert(this.id);
 				//obj.Summary();
