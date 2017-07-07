@@ -365,7 +365,7 @@
 
 				var oldValue = this._RenderObject[key].Id;
 				if (this._BlockedFeatures.hasOwnProperty(this._RenderObject[oldValue])) {
-					for (var blockedFeature in this._BlockedFeatures[this._RenderObject[oldValue].Id]) {
+					for (var blockedFeature=0; blockedFeature < this._BlockedFeatures[this._RenderObject[oldValue].Id].length; blockedFeature++) {
 						var feature = this._CurrentBlockedFeatures[this._RenderObject[key].Id][blockedFeature];
 						this._CurrentBlockedFeatures.pop(feature);
 						$("[data-tds-element='" + feature + "']").removeClass("block");
@@ -373,7 +373,7 @@
 				}
 
 				if (this._BlockedDetails.hasOwnProperty(oldValue)) {
-					for (var blockedDetail in this._BlockedDetails[oldValue]) {
+					for (var blockedDetail=0; blockedDetail < this._BlockedDetails[oldValue].length; blockedDetail++) {
 						var detail = this._BlockedDetails[oldValue][blockedDetail];
 						this._CurrentBlockedDetails.pop(detail);
 						$("[data-tds-key='" + detail + "']").removeClass("block");
@@ -414,7 +414,7 @@
 				this._RenderObject[key].Id = value;
 
 				if (this._BlockedFeatures.hasOwnProperty(value)) {
-					for (var blockedFeature in this._BlockedFeatures[value]) {
+					for (var blockedFeature=0; blockedFeature < this._BlockedFeatures[value].length;blockedFeature++) {
 						var feature = this._BlockedFeatures[value][blockedFeature];
 						this._CurrentBlockedFeatures.push(feature);
 						$("[data-tds-element='" + feature + "']").addClass("block");
@@ -422,7 +422,7 @@
 				}
 
 				if (this._BlockedDetails.hasOwnProperty(value)) {
-					for (var blockedDetail in this._BlockedDetails[value]) {
+					for (var blockedDetail=0; blockedDetail < this._BlockedDetails[value].length;blockedDetail++) {
 						var detail = this._BlockedDetails[value][blockedDetail];
 						this._CurrentBlockedDetails.push(detail);
 						$("[data-tds-key='" + detail + "']").addClass("block");
