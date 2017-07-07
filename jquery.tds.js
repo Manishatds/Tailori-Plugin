@@ -467,7 +467,7 @@
 
 					for (var fLink in this._DoubleLinks[key]) {
 
-						for (var dLink in this._DoubleLinks[key][fLink]) {
+						for (var dLink=0; dLink < this._DoubleLinks[key][fLink].length;dLink++) {
 							if (swatch !== "")
 								this._Url += "part=" + this._RenderObject[key].Id + "&pair=" + this._RenderObject[fLink].Id + "&pairpair=" + this._RenderObject[this._DoubleLinks[key][fLink][dLink]].Id + swatch + "/";
 							else
@@ -482,7 +482,7 @@
 				else
 					this._Url += "part=" + this._RenderObject[key].Id + "/";
 				if (this._RenderObject[key].Contrast.length > 0) {
-					for (var contrastKey in this._RenderObject[key].Contrast) {
+					for (var contrastKey=0; contrastKey < this._RenderObject[key].Contrast.length;contrastKey++) {
 						if (this._RenderObject[key].Contrast[contrastKey] === null)
 							continue;
 						var cSwatch = this._RenderObject[key].Contrast[contrastKey].Swatch;
@@ -493,7 +493,7 @@
 							//this._Url += "part=" + this._RenderObject[key].Id;
 							if (this._DoubleLinks.hasOwnProperty(key)) {
 								for (var fLink in this._DoubleLinks[key]) {
-										for (var dLink in this._DoubleLinks[key][fLink]) {
+										for (var dLink=0; dLink < this._DoubleLinks[key][fLink].length;dLink++) {
 											if (swatch !== "")
 												this._Url += "part=" + this._RenderObject[key].Id + "&pair=" + this._RenderObject[fLink].Id + "&pairpair=" + this._RenderObject[this._DoubleLinks[key][fLink][dLink]].Id;
 											else
@@ -588,7 +588,7 @@
 						if (data.length === 2 && data[0] === "" && data[1].indexOf("Monogram") > 1) {
 							isAny = false;
 						} else
-							for (var url in data) {
+							for (var url=0;url < data.length;url++) {
 								if (data[url] != "") {
 									if (imgSrc !== undefined) {
 										var h = $(imgSrc).css("height");
@@ -652,7 +652,7 @@
 					this._CurrentAlignmentIndex--;
 			} else
 				for (var key=0 ;key < this._Alignments.length;key++) {
-						if (this._Alignments[key].toLowerCase() == "face")
+						if (this._Alignments[key].toLowerCase() == align)
 							this._CurrentAlignmentIndex = key;
 				}
 			this._createUrl();
@@ -728,7 +728,7 @@
 			for (key=0; key < this._LibConfig.length;key++) {
 				var indexOf = this._LibConfig[key].Options.indexOf(this._SpecificViewOf);
 				if (indexOf > -1) {
-					for (var key1 in this._LibConfig[key].Options) {
+					for (var key1=0; key1 < this._LibConfig[key].Options.length; key1++) {
 						this._RenderObject[this._LibConfig[key].Options[key1]].Swatch = id
 					}
 					isFound = true;
@@ -799,7 +799,7 @@
 
 			for (var key in this._RenderObject) {
 				selectedElements.push(this._RenderObject[key].Id);
-				for (var contrastKey in this._RenderObject[key].Contrast) {
+				for (var contrastKey=0; contrastKey < this._RenderObject[key].Contrast.length;contrastKey++) {
 					selectedContrast.push({
 						'Detail': key,
 						'ContrastNo': contrastKey,
@@ -928,6 +928,7 @@
 					this._RenderObject[key].Contrast[contrastKey].Color = "";
 				}
 			}
+			this._createUrl();
 		},
 
 		ResetProduct: function () {
