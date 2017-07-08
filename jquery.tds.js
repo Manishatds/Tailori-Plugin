@@ -969,32 +969,58 @@
 
 			return null;
 		},
-		CustomizeOptions: function (optionArray) {
-			var selectedOption = [];
-			for(var i=0;i < optionArray.length ; i++ ){
-				for(var dataIndex = 0;dataIndex < this._ProductData.length ; dataIndex++){
-					if(optionArray[i] ==  this._ProductData[dataIndex].Id){
-						selectedOption.push(this._ProductData[dataIndex].Id);
-						$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").addClass("selected");
-						$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").addClass("selected");
-					}		
+		CustomizeOptions: function (optionArray,featureArray) {
+			if(featureArray == undefined && optionArray != undefined){
+				for(var i=0;i < optionArray.length ; i++ ){
+							$("[data-tds-key='" + optionArray[i] + "']").addClass("selected");
+							$("[data-tds-product='" + optionArray[i] + "']").addClass("selected");
+						}		
+				console.log(optionArray);
+				for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+					if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
+								$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
+						$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+						$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+						continue;
+					} 
+					$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
+					$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
 				}
-			}
-			console.log(selectedOption);
-			for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
-				if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
-							$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
-					$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
-					$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
-					continue;
-				} 
-				$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
-				$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
-			}
-				
+			}else if(featureArray != undefined && optionArray != undefined){
+				for(var i=0;i < optionArray.length ; i++ ){
+							$("[data-tds-product='" + optionArray[i] + "']").addClass("selected");
+						}
+				for(var dataIndex=0; dataIndex < featureArray.length ; dataIndex++){
+					$("[data-tds-element='" + featureArray[dataIndex] + "']").addClass("selected");
+				}
+				console.log(optionArray);
+				for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+					if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
+								$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
+									for(var o=0 ; o < this._ProductData[dataIndex].Options.length; o++ ){
+										for(var f=0;f < this._ProductData[dataIndex].Options[o].Features.length;f++ ){
+											if($("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").hasClass("selected")){
+												$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").removeClass("selected");
+												continue;
+											}	
+											else{
+												$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").remove();
+											}
+										}
+									}
+						$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+						$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+						continue;
+					} 
+
+					$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
+					$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
+				}
+			}else{
+				console.log("null");
+			}	
 			return null;
 		},
-
 	};
 
 	function parseColor(color) {
