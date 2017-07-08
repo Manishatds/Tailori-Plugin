@@ -973,7 +973,7 @@
 			var selectedOption = [];
 			for(var i=0;i < optionArray.length ; i++ ){
 				for(var dataIndex = 0;dataIndex < this._ProductData.length ; dataIndex++){
-					if(optionArray[i].toLowerCase() ==  this._ProductData[dataIndex].Name.toLowerCase()){
+					if(optionArray[i] ==  this._ProductData[dataIndex].Id){
 						selectedOption.push(this._ProductData[dataIndex].Id);
 						$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").addClass("selected");
 						$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").addClass("selected");
