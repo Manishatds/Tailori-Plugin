@@ -969,32 +969,13 @@
 
 			return null;
 		},
-		CustomizeOptions: function (optionArray,featureArray) {
-			if(featureArray == undefined && optionArray != undefined){
-				for(var i=0;i < optionArray.length ; i++ ){
-							$("[data-tds-key='" + optionArray[i] + "']").addClass("selected");
-							$("[data-tds-product='" + optionArray[i] + "']").addClass("selected");
-						}		
-				console.log(optionArray);
-				for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
-					if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
-								$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
-						$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
-						$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
-						continue;
-					} 
-					$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
-					$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
-				}
-			}else if(featureArray != undefined && optionArray != undefined){
-				for(var i=0;i < optionArray.length ; i++ ){
-							$("[data-tds-product='" + optionArray[i] + "']").addClass("selected");
-						}
-				for(var dataIndex=0; dataIndex < featureArray.length ; dataIndex++){
+		CustomizeOptions: function (featureArray) {
+			for(var dataIndex=0; dataIndex < featureArray.length ; dataIndex++){
 					$("[data-tds-element='" + featureArray[dataIndex] + "']").addClass("selected");
+					var product = $("[data-tds-element='" + featureArray[dataIndex] + "']").attr("data-tds-key");
+					$("[data-tds-product='" + product + "']").addClass("selected");
 				}
-				console.log(optionArray);
-				for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+			for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
 					if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
 								$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
 									for(var o=0 ; o < this._ProductData[dataIndex].Options.length; o++ ){
@@ -1016,9 +997,6 @@
 					$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
 					$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
 				}
-			}else{
-				console.log("null");
-			}	
 			return null;
 		},
 	};
