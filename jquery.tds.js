@@ -50,6 +50,8 @@
 		_LibConfig: new Object,
 		_IsAlignmentClick: false,
 		_SelectedAlignment: "face",
+		_IsCustomizeOptions : false,
+		_CustomizeOptions : [],
 
 		defaults: {
 			Product: "Men-Shirt",
@@ -251,6 +253,20 @@
 										"Features": features
 									});
 								$(featureUiId).html(htmlOutput1);
+								if(that._IsCustomizeOptions){
+									if(that._CustomizeOptions.length > 0){
+										for(var c=0 ; c < that._CustomizeOptions.length; c++){
+											$("[data-tds-element='" + that._CustomizeOptions[c] + "']").addClass("selected");
+										}
+										for(var f=0;f < features.length;f++){
+											if($("[data-tds-element='" + features[f].Id + "']").hasClass("selected")){
+												$("[data-tds-element='" + features[f].Id + "']").removeClass("selected");
+												continue;
+											}
+											$("[data-tds-element='" + features[f].Id + "']").remove();
+										}
+									}
+								}
 							}
 						}
 
@@ -295,6 +311,20 @@
 													"Features": features
 												});
 											$(featureUiId).html(htmlOutput1);
+											if(that._IsCustomizeOptions){
+												if(that._CustomizeOptions.length > 0){
+													for(var c=0 ; c < that._CustomizeOptions.length; c++){
+														$("[data-tds-element='" + that._CustomizeOptions[c] + "']").addClass("selected");
+													}
+													for(var f=0;f < features.length;f++){
+														if($("[data-tds-element='" + features[f].Id + "']").hasClass("selected")){
+															$("[data-tds-element='" + features[f].Id + "']").removeClass("selected");
+															continue;
+														}
+														$("[data-tds-element='" + features[f].Id + "']").remove();
+													}
+												}
+											}
 										}
 									}
 								}
@@ -318,6 +348,20 @@
 											"Features": features
 										});
 									$(featureUiId).html(htmlOutput1);
+									if(that._IsCustomizeOptions){
+										if(that._CustomizeOptions.length > 0){
+											for(var c=0 ; c < that._CustomizeOptions.length; c++){
+												$("[data-tds-element='" + that._CustomizeOptions[c] + "']").addClass("selected");
+											}
+											for(var f=0;f < features.length;f++){
+												if($("[data-tds-element='" + features[f].Id + "']").hasClass("selected")){
+													$("[data-tds-element='" + features[f].Id + "']").removeClass("selected");
+													continue;
+												}
+												$("[data-tds-element='" + features[f].Id + "']").remove();
+											}
+										}
+									}
 								}
 							}
 						}
@@ -713,6 +757,8 @@
 			this._unregisterEvents();
 			this.Option("Product", product);
 			this._setCofiguration(product, this.Option("ProductTemplate"));
+			this._IsCustomizeOptions = false;
+			this._CustomizeOptions = [];
 		},
 
 		Texture: function (id) {
@@ -969,34 +1015,95 @@
 
 			return null;
 		},
-		CustomizeOptions: function (featureArray) {
-			for(var dataIndex=0; dataIndex < featureArray.length ; dataIndex++){
-					$("[data-tds-element='" + featureArray[dataIndex] + "']").addClass("selected");
-					var product = $("[data-tds-element='" + featureArray[dataIndex] + "']").attr("data-tds-key");
-					$("[data-tds-product='" + product + "']").addClass("selected");
+		CustomizeOptions: function (productDetailArray,featureArray) {
+			if(this.Option("IsOptionVisible")){
+				if(productDetailArray != undefined && featureArray == undefined){
+				for(var dataIndex=0; dataIndex < productDetailArray.length ; dataIndex++){
+					$("[data-tds-product='" + productDetailArray[dataIndex] + "']").addClass("selected");
 				}
-			for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
-					if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
-								$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
-									for(var o=0 ; o < this._ProductData[dataIndex].Options.length; o++ ){
-										for(var f=0;f < this._ProductData[dataIndex].Options[o].Features.length;f++ ){
-											if($("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").hasClass("selected")){
-												$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").removeClass("selected");
-												continue;
-											}	
-											else{
-												$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").remove();
-											}
-										}
-									}
-						$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
-						$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
-						continue;
-					} 
+				for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+						if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
+									$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
+							$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+							$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+							continue;
+						} 
 
-					$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
-					$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
+						$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
+						$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
+					}
+				}else if(productDetailArray != undefined && featureArray != undefined){
+					for(var dataIndex=0; dataIndex < productDetailArray.length ; dataIndex++){
+						$("[data-tds-product='" + productDetailArray[dataIndex] + "']").addClass("selected");
+					}
+					this._IsCustomizeOptions = true;
+					this._CustomizeOptions = featureArray;
+				
+					for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+							if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
+										$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
+								$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+								$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+								continue;
+							} 
+
+							$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
+							$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
+						}
+					
+				}else{
+					console.log("null");
 				}
+			}else{
+				if(productDetailArray != undefined && featureArray != undefined){
+					for(var dataIndex=0; dataIndex < productDetailArray.length ; dataIndex++){
+						$("[data-tds-product='" + productDetailArray[dataIndex] + "']").addClass("selected");
+					}
+					for(var dataIndex=0; dataIndex < featureArray.length ; dataIndex++){
+						$("[data-tds-element='" + featureArray[dataIndex] + "']").addClass("selected");
+					}
+					for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+							if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
+										$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
+											for(var o=0 ; o < this._ProductData[dataIndex].Options.length; o++ ){
+												for(var f=0;f < this._ProductData[dataIndex].Options[o].Features.length;f++ ){
+													if($("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").hasClass("selected")){
+														$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").removeClass("selected");
+														continue;
+													}	
+													else{
+														$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").remove();
+													}
+												}
+											}
+								$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+								$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+								continue;
+							} 
+
+							$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
+							$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
+						}
+				}else if(productDetailArray != undefined && featureArray == undefined){
+					for(var dataIndex=0; dataIndex < productDetailArray.length ; dataIndex++){
+						$("[data-tds-product='" + productDetailArray[dataIndex] + "']").addClass("selected");
+					}
+					for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+							if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
+										$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
+								$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+								$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
+								continue;
+							} 
+
+							$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").remove();
+							$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").remove();
+						}
+				}else{
+					console.log("null");
+				}
+			}
+			
 			return null;
 		},
 	};
