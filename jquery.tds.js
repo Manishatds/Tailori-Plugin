@@ -432,7 +432,13 @@
 						for (var j = 0; j < this._ProductData[i].Options.length; j++) {
 							for (var k = 0; k < this._ProductData[i].Options[j].Features.length; k++) {
 								if (this._ProductData[i].Options[j].Features[k].Id == value) {
-									this._SelectedAlignment = this._ProductData[i].Options[j].Features[k].Alignment;
+									if(this.Option("AutoAlignment")){
+										this._SelectedAlignment = this._ProductData[i].Options[j].Features[k].Alignment;
+										for(var l=0;l < this._Alignments.length; l++){
+											if(this._SelectedAlignment.toLowerCase() == this._Alignments[l].toLowerCase())
+												this._CurrentAlignmentIndex = l;
+										}
+									}
 									selectedFeatureName = this._ProductData[i].Options[j].Features[k].Name;
 								}
 							}
@@ -592,14 +598,14 @@
 			}
 
 			if (this._IsAlignmentClick) {
-				if (this._Alignments[this._CurrentAlignmentIndex].toLowerCase() == "face")
+				if (this._Alignments[this._CurrentAlignmentIndex].toLowerCase() == "face" || this._Alignments[this._CurrentAlignmentIndex].toLowerCase() == "face open")
 					this._Url += monoUrl;
 				this._Url += "view=" + this._Alignments[this._CurrentAlignmentIndex];
 
 				if (!this._IsSpecific)
 					this._IsAlignmentClick = false;
 			} else {
-				if (this._SelectedAlignment.toLowerCase() == "face")
+				if (this._SelectedAlignment.toLowerCase() == "face" || this._Alignments[this._CurrentAlignmentIndex].toLowerCase() == "face open")
 					this._Url += monoUrl;
 				this._Url += "view=" + this._SelectedAlignment;
 					/*for(var index in this._Alignments)
@@ -759,6 +765,7 @@
 			this._setCofiguration(product, this.Option("ProductTemplate"));
 			this._IsCustomizeOptions = false;
 			this._CustomizeOptions = [];
+			this._SelectedAlignment = "face";
 		},
 
 		Texture: function (id) {
