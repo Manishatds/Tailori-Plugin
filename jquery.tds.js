@@ -533,7 +533,7 @@
 					this._Url += "part=" + this._RenderObject[key].Id + "/";
 				if (this._RenderObject[key].Contrast.length > 0) {
 					for (var contrastKey=0; contrastKey < this._RenderObject[key].Contrast.length;contrastKey++) {
-						if (this._RenderObject[key].Contrast[contrastKey] === null)
+						if (this._RenderObject[key].Contrast[contrastKey] === null || this._RenderObject[key].Contrast[contrastKey] === undefined)
 							continue;
 						var cSwatch = this._RenderObject[key].Contrast[contrastKey].Swatch;
 						var cColor = this._RenderObject[key].Contrast[contrastKey].Color;
