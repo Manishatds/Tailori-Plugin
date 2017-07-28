@@ -570,10 +570,11 @@
 							this._Url += "&pair=" + this._RenderObject[key].Id + "&swatch=" + this._RenderObject[this._ReverseLinks[key][index]].Swatch;
 						/* changes by Rohit */
 						if (this._RenderObject[this._ReverseLinks[key][index]].Contrast.length > 0){
+							this._Url  += "&pair=" + this._RenderObject[key].Id + "/";
 							for(var ContrastIndex=0;ContrastIndex < this._RenderObject[this._ReverseLinks[key][index]].Contrast.length;ContrastIndex++){
 								if(this._RenderObject[this._ReverseLinks[key][index]].Contrast[ContrastIndex] == undefined)
 									continue;
-								this._Url += "&pair=" + this._RenderObject[key].Id + "&swatch=" + this._RenderObject[this._ReverseLinks[key][index]].Contrast[ContrastIndex].Swatch + "&grouporderno="+ContrastIndex + "/";
+								this._Url += "part=" + this._RenderObject[this._ReverseLinks[key][index]].Id+"&pair=" + this._RenderObject[key].Id + "&swatch=" + this._RenderObject[this._ReverseLinks[key][index]].Contrast[ContrastIndex].Swatch + "&grouporderno="+ContrastIndex + "/";
 							}
 						}else{
 							this._Url += "&pair=" + this._RenderObject[key].Id + "/";
