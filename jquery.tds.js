@@ -1044,8 +1044,27 @@
 						$("[data-tds-product='" + productDetailArray[dataIndex] + "']").addClass("selected");
 					}
 					this._IsCustomizeOptions = true;
-					this._CustomizeOptions = featureArray;
-				
+					this._CustomizeOptions.push(featureArray);
+					
+					var optionarray = [];
+					for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+						for(var o = 0;o < this._ProductData[dataIndex].Options.length;o++){
+							for(var f = 0;f < this._ProductData[dataIndex].Options[o].Features.length;f++){
+								for(var fa = 0;fa < featureArray.length;fa++){
+									if(featureArray[fa] == this._ProductData[dataIndex].Options[o].Features[f].Id){
+										var check = $.inArray(this._ProductData[dataIndex].Options[o].Id,optionarray);
+										if(check != -1)
+											continue;
+										else
+											optionarray.push(this._ProductData[dataIndex].Options[o].Id);
+									}
+										
+								}
+							}
+						}		
+					}
+					// console.log(optionarray);
+					this._CustomizeOptions.push(optionarray);
 					for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
 							if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
 										$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
@@ -1069,18 +1088,41 @@
 					for(var dataIndex=0; dataIndex < featureArray.length ; dataIndex++){
 						$("[data-tds-element='" + featureArray[dataIndex] + "']").addClass("selected");
 					}
+					var optionarray = [];
+					for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
+						for(var o = 0;o < this._ProductData[dataIndex].Options.length;o++){
+							for(var f = 0;f < this._ProductData[dataIndex].Options[o].Features.length;f++){
+								for(var fa = 0;fa < featureArray.length;fa++){
+									if(featureArray[fa] == this._ProductData[dataIndex].Options[o].Features[f].Id){
+										var check = $.inArray(this._ProductData[dataIndex].Options[o].Id,optionarray);
+										if(check != -1)
+											continue;
+										else
+											optionarray.push(this._ProductData[dataIndex].Options[o].Id);
+									}
+										
+								}
+							}
+						}		
+					}
+					console.log(optionarray);
+					for(var dataIndex=0; dataIndex < optionarray.length ; dataIndex++){
+						$("[data-tds-option='" + optionarray[dataIndex] + "']").addClass("selected");
+					}
 					for (var dataIndex = 0; dataIndex < this._ProductData.length; dataIndex++) {
 							if ($("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") || 
 										$("[data-tds-product='" + this._ProductData[dataIndex].Id + "']").hasClass("selected") ){
 											for(var o=0 ; o < this._ProductData[dataIndex].Options.length; o++ ){
+												if(!$("[data-tds-option='" + this._ProductData[dataIndex].Options[o].Id + "']").hasClass("selected"))
+													$("[data-tds-option='" + this._ProductData[dataIndex].Options[o].Id + "']").remove();
 												for(var f=0;f < this._ProductData[dataIndex].Options[o].Features.length;f++ ){
 													if($("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").hasClass("selected")){
 														$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").removeClass("selected");
-														continue;
+															continue;
 													}	
 													else{
-														$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").remove();
-													}
+															$("[data-tds-element='" + this._ProductData[dataIndex].Options[o].Features[f].Id + "']").remove();
+														}
 												}
 											}
 								$("[data-tds-key='" + this._ProductData[dataIndex].Id + "']").removeClass("selected");
