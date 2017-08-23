@@ -254,9 +254,9 @@
 									});
 								$(featureUiId).html(htmlOutput1);
 								if(that._IsCustomizeOptions){
-									if(that._CustomizeOptions.length > 0){
-										for(var c=0 ; c < that._CustomizeOptions.length; c++){
-											$("[data-tds-element='" + that._CustomizeOptions[c] + "']").addClass("selected");
+									if(that._CustomizeOptions[0].length > 0){
+										for(var c=0 ; c < that._CustomizeOptions[0].length; c++){
+											$("[data-tds-element='" + that._CustomizeOptions[0][c] + "']").addClass("selected");
 										}
 										for(var f=0;f < features.length;f++){
 											if($("[data-tds-element='" + features[f].Id + "']").hasClass("selected")){
@@ -300,6 +300,20 @@
 												"Options": options
 											});
 										$(optionUiId).html(htmlOutput1);
+										if(that._IsCustomizeOptions){
+											if(that._CustomizeOptions[1].length > 0){
+												for(var c=0 ; c < that._CustomizeOptions[1].length; c++){
+													$("[data-tds-option='" + that._CustomizeOptions[1][c] + "']").addClass("selected");
+												}
+												for(var f=0;f < options.length;f++){
+													if($("[data-tds-option='" + options[f].Id + "']").hasClass("selected")){
+														$("[data-tds-option='" + options[f].Id + "']").removeClass("selected");
+														continue;
+													}
+													$("[data-tds-option='" + options[f].Id + "']").remove();
+												}
+											}
+										}
 									} else {
 										var features = options[0].Features;
 
@@ -312,9 +326,9 @@
 												});
 											$(featureUiId).html(htmlOutput1);
 											if(that._IsCustomizeOptions){
-												if(that._CustomizeOptions.length > 0){
-													for(var c=0 ; c < that._CustomizeOptions.length; c++){
-														$("[data-tds-element='" + that._CustomizeOptions[c] + "']").addClass("selected");
+												if(that._CustomizeOptions[1].length > 0){
+													for(var c=0 ; c < that._CustomizeOptions[1].length; c++){
+														$("[data-tds-element='" + that._CustomizeOptions[1][c] + "']").addClass("selected");
 													}
 													for(var f=0;f < features.length;f++){
 														if($("[data-tds-element='" + features[f].Id + "']").hasClass("selected")){
@@ -349,9 +363,9 @@
 										});
 									$(featureUiId).html(htmlOutput1);
 									if(that._IsCustomizeOptions){
-										if(that._CustomizeOptions.length > 0){
-											for(var c=0 ; c < that._CustomizeOptions.length; c++){
-												$("[data-tds-element='" + that._CustomizeOptions[c] + "']").addClass("selected");
+										if(that._CustomizeOptions[1].length > 0){
+											for(var c=0 ; c < that._CustomizeOptions[1].length; c++){
+												$("[data-tds-element='" + that._CustomizeOptions[1][c] + "']").addClass("selected");
 											}
 											for(var f=0;f < features.length;f++){
 												if($("[data-tds-element='" + features[f].Id + "']").hasClass("selected")){
