@@ -701,7 +701,7 @@
 		},
 
 		_changeAlignment: function ($alignEle) {
-			this._IsAlignmentClick = true;
+			
 			var align = $alignEle.data("tds-alignment").toLowerCase();
 
 			if (align == "next") {
