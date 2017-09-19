@@ -702,6 +702,7 @@
 
 		_changeAlignment: function ($alignEle) {
 			
+			this._IsAlignmentClick = true;
 			var align = $alignEle.data("tds-alignment").toLowerCase();
 
 			if (align == "next") {
@@ -856,6 +857,21 @@
 			var selectedContrast = new Array();
 
 			var selectedTextures = new Array();
+			
+			var selectedMonogram = new Array();
+			
+			var monogram = false;
+
+			if(this._MonogramPlacement != "" && this._MonogramColor != "" && this._MonogramFont != "" && this._MonogramText != "")
+			{
+				selectedMonogram.push({
+					'MonogramText' : this._MonogramText.toString(),
+					'MonogramPlacement' : this._MonogramFont.toString(),
+					'MonogramFont' : this._MonogramPlacement.toString(),
+					'MonogramColor' : this._MonogramColor.toString()
+				});
+				monogram = true;
+			}
 
 			selectedTextures.push({
 				'Detail': 'All',
@@ -880,7 +896,8 @@
 			var a = {
 				"Product": selectedElements,
 				"Contrast": selectedContrast,
-				"Swatch": selectedTextures
+				"Swatch": selectedTextures,
+				"Monogram" : selectedMonogram
 			};
 
 			var returnData = null;
