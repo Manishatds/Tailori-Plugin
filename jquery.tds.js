@@ -615,6 +615,7 @@
 				if (this._Alignments[this._CurrentAlignmentIndex].toLowerCase() == "face" || this._Alignments[this._CurrentAlignmentIndex].toLowerCase() == "face open")
 					this._Url += monoUrl;
 				this._Url += "view=" + this._Alignments[this._CurrentAlignmentIndex];
+				this._SelectedAlignment = this._Alignments[this._CurrentAlignmentIndex];
 
 				if (!this._IsSpecific)
 					this._IsAlignmentClick = false;
