@@ -213,7 +213,7 @@
 					}
 
 					$("body").on("click", "[data-tds-element]", function () {
-
+						e.stopPropagation();
 						if ($(this).hasClass("block") || that._CurrentBlockedFeatures.indexOf($(this).attr("data-tds-element")) > -1 || that._CurrentBlockedDetails.indexOf($(this).attr("data-tds-key")) > -1) {
 							console.log("feature is block");
 						} else {
@@ -227,6 +227,7 @@
 					});
 
 					$("body").on("click", "[data-tds-option]", function () {
+						e.stopPropagation();
 						var productId = $(this).data("tds-key");
 						var optionId = $(this).data("tds-option");
 						var featureTmpl = that.Option("FeatureTemplate");
