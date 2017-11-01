@@ -740,6 +740,7 @@
 			
 			this._IsAlignmentClick = true;
 			this._IsSpecific = false;
+			this._SpecificImageSource = false;
 			var align = $alignEle.data("tds-alignment").toLowerCase();
 
 			if (align == "next") {
