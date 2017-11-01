@@ -40,6 +40,8 @@
 		_MonogramColor: "",
 		_MonogramFont: "",
 		_MonogramText: "",
+		_SpecificImageSource : false,
+		_SpecificRender : false,
 		_SpecificDisplay: new Object(),
 		_SpecificLink: new Object(),
 		_SpecificDetails: new Array(),
@@ -56,6 +58,7 @@
 		defaults: {
 			Product: "Men-Shirt",
 			ImageSource: "",
+			SpecificImageSource : "",
 			ProductTemplate: "",
 			OptionTemplate: "",
 			OptionsPlace: "",
@@ -219,6 +222,7 @@
 						} else {
 							that._SpecificViewOf = $(this).attr("data-tds-key");
 							that._createRenderObject(that._SpecificViewOf, $(this).attr("data-tds-element"));
+							that._SpecificImageSource = false;
 						}
 
 						var callback = that.Option("OnFeatureChange");
@@ -386,8 +390,8 @@
 							callback.call(this, $(this).data("tds-product"));
 					});
 
-					$("body").on("click", "[data-tds-contrast]", function () {
-
+					$("body").on("click", "[data-tds-contrast]", function (e) {
+						e.stopPropagation();
 						that._setContrast($(this).attr("data-tds-key"), $(this).attr("data-tds-contrast"));
 						var callback = that.Option("OnContrastChange");
 						if (typeof callback == 'function')
@@ -632,8 +636,8 @@
 			if (this._IsSpecific)
 				this._Url += "/type=3"
 
-				if (this.Option("AutoSpecific"))
-					this._IsSpecific = true;
+// 				if (this.Option("AutoSpecific"))
+// 					this._IsSpecific = true;
 
 			console.log(this._Url);
 			if (this._Url.indexOf("part") === -1) {
@@ -646,11 +650,18 @@
 					success: function (data) {
 
 						$(this.Option("ImageSource")).empty();
+						
+						if(!this._SpecificImageSource)
+							$(this.Option("SpecificImageSource")).empty();
+						
 						var isAny = false;
 						var className = Date.now();
 						var imagesArray = [];
 						var imgSrc = this.Option("ImageSource");
-
+						
+						var specificimgsrc = this.Option("SpecificImageSource");
+						var spe = false;
+						
 						if (data.length === 2 && data[0] === "" && data[1].indexOf("Monogram") > 1) {
 							isAny = false;
 						} else
@@ -665,17 +676,40 @@
 										if(this.Option('ImageSize') != "" )
 											h= this.Option('ImageSize');
 										
-										$(imgSrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
+										if(this._IsSpecific && specificimgsrc != "" && !this._SpecificImageSource){
+											$(specificimgsrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
+											//spe = true;
+											spe = true;
+										}else if(specificimgsrc != "" && !this._SpecificImageSource){
+											$(imgSrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
+											$(specificimgsrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
+										}
+										else
+											$(imgSrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
 									}
 									imagesArray.push(data[url]);
-									isAny = true;
+									if(specificimgsrc != "" && this._IsSpecific && !this._SpecificRender)
+										isAny = false;
+									else
+										isAny = true;
 								}
 							}
+						
+						if(spe)
+							this._SpecificImageSource = true;
+						
+						if (this.Option("AutoSpecific"))
+							this._IsSpecific = true;
+						
+						if(this._SpecificRender)
+							this._SpecificRender = false;
+						
 						if (!isAny) {
 							this._IsSpecific = false;
 							this._createUrl();
 						} else {
 							$(imgSrc + " img:last").attr("data-zoom-image", this.Option("ServiceUrl") + "/v1/img?" + raw + "/type=5");
+							
 							var callback = this.Option("OnRenderImageChange");
 							if (typeof callback == 'function')
 								callback.call(this, imagesArray);
@@ -705,6 +739,7 @@
 		_changeAlignment: function ($alignEle) {
 			
 			this._IsAlignmentClick = true;
+			this._IsSpecific = false;
 			var align = $alignEle.data("tds-alignment").toLowerCase();
 
 			if (align == "next") {
@@ -1002,6 +1037,8 @@
 				}
 				this._SpecificViewOf = specific;
 				this._IsSpecific = true;
+				this._SpecificImageSource = true;
+				this._SpecificRender = true;
 				this._createUrl();
 			}
 
