@@ -814,6 +814,7 @@
 			this._SpecificLink = new Object();
 			this._SpecificViewOf = "";
 			this._unregisterEvents();
+			this._SpecificImageSource = false;
 			this.Option("Product", product);
 			this._setCofiguration(product, this.Option("ProductTemplate"));
 			this._IsCustomizeOptions = false;
@@ -862,6 +863,7 @@
 				else
 					this._Color = color;
 			}
+			this._SpecificImageSource = false;
 			this._createUrl();
 
 		},
@@ -884,6 +886,7 @@
 					Color: color
 				};
 			}
+			this._SpecificImageSource = false;
 			this._createUrl();
 
 		},
