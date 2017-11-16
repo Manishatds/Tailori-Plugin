@@ -1016,6 +1016,7 @@
 				this._MonogramFont = lookData.MF;
 				this._MonogramText = lookData.MT;
 				this._CurrentAlignmentIndex = lookData.AI;
+				this._SpecificImageSource = false;
 				this._createRenderObject("");
 			}
 		},
