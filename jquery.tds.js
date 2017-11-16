@@ -74,6 +74,7 @@
 			AutoSpecific: true,
 			AutoAlignment: true,
 			ImageSize :"1000",
+			ImageFormat : "jpg",
 			OnProductChange: "",
 			OnProductDetailChange: "",
 			OnOptionChange: "",
@@ -643,9 +644,14 @@
 			if (this._Url.indexOf("part") === -1) {
 				this._IsSpecific = false;
 				this._createUrl();
-			} else
+			} else{
+				var url;
+				if(this.Option("ImageFormat").toLowerCase() == "png" || this.Option("ImageFormat").toLowerCase() == "p")
+					url = this.Option("ServiceUrl") + "/v1/imgs?" + this._Url +"&if=png";
+				else
+					url = this.Option("ServiceUrl") + "/v1/imgs?" + this._Url;
 				$.getJSON({
-					url: this.Option("ServiceUrl") + "/v1/imgs?" + this._Url,
+					url: url,
 					context: this,
 					success: function (data) {
 
@@ -717,6 +723,7 @@
 					},
 					fail: function () {}
 				});
+			}
 
 		},
 
@@ -1009,7 +1016,6 @@
 				this._MonogramFont = lookData.MF;
 				this._MonogramText = lookData.MT;
 				this._CurrentAlignmentIndex = lookData.AI;
-				this._SpecificImageSource = false;
 				this._createRenderObject("");
 			}
 		},
