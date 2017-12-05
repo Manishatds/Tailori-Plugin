@@ -54,6 +54,7 @@
 		_SelectedAlignment: "face",
 		_IsCustomizeOptions : false,
 		_CustomizeOptions : [],
+		_oldValue : "",
 
 		defaults: {
 			Product: "Men-Shirt",
@@ -426,24 +427,27 @@
 				}
 
 			} else if (key !== "") {
-
-				var oldValue = this._RenderObject[key].Id;
-				if (this._BlockedFeatures.hasOwnProperty(this._RenderObject[oldValue])) {
-					for (var blockedFeature=0; blockedFeature < this._BlockedFeatures[this._RenderObject[oldValue].Id].length; blockedFeature++) {
-						var feature = this._CurrentBlockedFeatures[this._RenderObject[key].Id][blockedFeature];
+				
+				//this._CurrentBlockedFeatures = new array();
+				
+				if (this._BlockedFeatures.hasOwnProperty(this._oldValue)) {
+					for (var blockedFeature=0; blockedFeature < this._BlockedFeatures[this._oldValue].length; blockedFeature++) {
+						//var feature = this._CurrentBlockedFeatures[this._RenderObject[key].Id][blockedFeature];
+						var feature = this._BlockedFeatures[this._oldValue][blockedFeature];
 						this._CurrentBlockedFeatures.pop(feature);
 						$("[data-tds-element='" + feature + "']").removeClass("block");
 					}
 				}
 
-				if (this._BlockedDetails.hasOwnProperty(oldValue)) {
-					for (var blockedDetail=0; blockedDetail < this._BlockedDetails[oldValue].length; blockedDetail++) {
-						var detail = this._BlockedDetails[oldValue][blockedDetail];
+				if (this._BlockedDetails.hasOwnProperty(this._oldValue)) {
+					for (var blockedDetail=0; blockedDetail < this._BlockedDetails[this._oldValue].length; blockedDetail++) {
+						var detail = this._BlockedDetails[this._oldValue][blockedDetail];
 						this._CurrentBlockedDetails.pop(detail);
 						$("[data-tds-key='" + detail + "']").removeClass("block");
 					}
 				}
-
+				
+				
 				var selectedDetailName = "";
 				var selectedFeatureName = "";
 				for (var i = 0; i < this._ProductData.length; i++) {
@@ -482,6 +486,7 @@
 					}
 				}
 				this._RenderObject[key].Id = value;
+				this._oldValue = this._RenderObject[key].Id;
 
 				if (this._BlockedFeatures.hasOwnProperty(value)) {
 					for (var blockedFeature=0; blockedFeature < this._BlockedFeatures[value].length;blockedFeature++) {
