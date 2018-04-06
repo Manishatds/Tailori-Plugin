@@ -1,5 +1,5 @@
 /*
- * jQuery tds.tailori plugin
+ * jQuery tds.tailori plugin vesion - 4.1 [06/18]
  * Original Author:  @ Sagar Narayane
  * Further Changes, comments:
  * Licensed under the Textronics Design System pvt.ltd.
@@ -54,7 +54,6 @@
 		_SelectedAlignment: "face",
 		_IsCustomizeOptions : false,
 		_CustomizeOptions : [],
-		_oldValue : "",
 
 		defaults: {
 			Product: "Men-Shirt",
@@ -86,6 +85,7 @@
 		},
 
 		init: function () {
+			console.warn("Textronic jQuery tds.tailori plugin vesion - 4.1 [06d/18y]");
 			this.config = $.extend({}, this.defaults, this.options, this.metadata);
 			this._Swatch = this.Option("Swatch");
 			this._setCofiguration(this.Option("Product"));
@@ -429,19 +429,20 @@
 			} else if (key !== "") {
 				
 				//this._CurrentBlockedFeatures = new array();
+				var oldValue = this._RenderObject[key].Id;
 				
-				if (this._BlockedFeatures.hasOwnProperty(this._oldValue)) {
-					for (var blockedFeature=0; blockedFeature < this._BlockedFeatures[this._oldValue].length; blockedFeature++) {
+				if (this._BlockedFeatures.hasOwnProperty(oldValue)) {
+					for (var blockedFeature=0; blockedFeature < this._BlockedFeatures[oldValue].length; blockedFeature++) {
 						//var feature = this._CurrentBlockedFeatures[this._RenderObject[key].Id][blockedFeature];
-						var feature = this._BlockedFeatures[this._oldValue][blockedFeature];
+						var feature = this._BlockedFeatures[oldValue][blockedFeature];
 						this._CurrentBlockedFeatures.pop(feature);
 						$("[data-tds-element='" + feature + "']").removeClass("block");
 					}
 				}
 
-				if (this._BlockedDetails.hasOwnProperty(this._oldValue)) {
-					for (var blockedDetail=0; blockedDetail < this._BlockedDetails[this._oldValue].length; blockedDetail++) {
-						var detail = this._BlockedDetails[this._oldValue][blockedDetail];
+				if (this._BlockedDetails.hasOwnProperty(oldValue)) {
+					for (var blockedDetail=0; blockedDetail < this._BlockedDetails[oldValue].length; blockedDetail++) {
+						var detail = this._BlockedDetails[oldValue][blockedDetail];
 						this._CurrentBlockedDetails.pop(detail);
 						$("[data-tds-key='" + detail + "']").removeClass("block");
 					}
@@ -486,7 +487,7 @@
 					}
 				}
 				this._RenderObject[key].Id = value;
-				this._oldValue = this._RenderObject[key].Id;
+				//this._oldValue = this._RenderObject[key].Id;
 
 				if (this._BlockedFeatures.hasOwnProperty(value)) {
 					for (var blockedFeature=0; blockedFeature < this._BlockedFeatures[value].length;blockedFeature++) {
@@ -660,7 +661,7 @@
 					context: this,
 					success: function (data) {
 
-						$(this.Option("ImageSource")).empty();
+						//$(this.Option("ImageSource")).empty();
 						
 						if(!this._SpecificImageSource)
 							$(this.Option("SpecificImageSource")).empty();
@@ -668,7 +669,10 @@
 						var isAny = false;
 						var className = Date.now();
 						var imagesArray = [];
+						var c = 1;
 						var imgSrc = this.Option("ImageSource");
+						
+						$(imgSrc).find('.TdsNew').removeClass('TdsNew').addClass('TdsOld');
 						
 						var specificimgsrc = this.Option("SpecificImageSource");
 						var spe = false;
@@ -692,17 +696,19 @@
 											//spe = true;
 											spe = true;
 										}else if(specificimgsrc != "" && !this._SpecificImageSource){
-											$(imgSrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
+											$(imgSrc).append("<img class='TdsNew' style='opacity:0' c="+ c +" src='" + data[url] + "?h=" + h + "&scale=both'>");
 											$(specificimgsrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
 										}
 										else
-											$(imgSrc).append("<img src='" + data[url] + "?h=" + h + "&scale=both'>");
+											$(imgSrc).append("<img class='TdsNew' style='opacity:0' c="+ c +" src='" + data[url] + "?h=" + h + "&scale=both'>");
 									}
 									imagesArray.push(data[url]);
 									if(specificimgsrc != "" && this._IsSpecific && !this._SpecificRender)
 										isAny = false;
 									else
 										isAny = true;
+									
+									c++;
 								}
 							}
 						
@@ -719,11 +725,32 @@
 							this._IsSpecific = false;
 							this._createUrl();
 						} else {
-							$(imgSrc + " img:last").attr("data-zoom-image", this.Option("ServiceUrl") + "/v1/img?" + raw + "/type=5");
+							$(imgSrc + " img:last").attr("data-zoom-image", this.Option("ServiceUrl") + "/v1/img?key="+this.Option("Key") + "&"+ raw + "/type=5");
 							
-							var callback = this.Option("OnRenderImageChange");
-							if (typeof callback == 'function')
-								callback.call(this, imagesArray);
+							var that = this;
+							var loadedImage = 0;
+							
+							$(imgSrc + ' .TdsNew').on('load', function() {
+								//console.log($(this).attr('c')); 
+								loadedImage++;
+								if(loadedImage == $(imgSrc + ' .TdsNew').length){
+									
+									//$(imgSrc + ' .TdsNew').css('opacity','1');
+									for (var i = 0,t=50; i < 1.0; i += 0.1) {
+										that._effect(imgSrc,i.toFixed(1).toString(),t);
+										t =t+50;
+									}
+									//$(imgSrc + ' .TdsOld').remove();
+									loadedImage = 0;
+									
+									var callback = that.Option("OnRenderImageChange");
+									if (typeof callback == 'function')
+									callback.call(that, imagesArray);
+								}
+							}).each(function() {
+							  if(this.complete) $(this).load();
+							});
+							
 						}
 					},
 					fail: function () {}
@@ -731,7 +758,16 @@
 			}
 
 		},
-
+		_effect : function(imgSrc,i,t){
+			setTimeout(function(){
+				$(imgSrc).find('.TdsNew').css('opacity',i);
+				//console.log(i)
+				if((1.0 - i).toFixed(1) == 0.0){
+					$(imgSrc + ' .TdsOld').remove();
+				}
+					
+			},t);
+		},
 		_linkingBlocking: function () {
 			$.getJSON({
 				url: this.Option("ServiceUrl") + "/api/products/" + this.Option("Product") + "/link",
